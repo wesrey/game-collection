@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wes' Board Game Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page: #ffffff;
+    --ink: #12131a;
+    --ink-dim: #5b5d6b;
+    --ink-faint: #9799a6;
+    --rule: #e4e4ea;
+    --rule-strong: #cfd0da;
+    --stripe: #fafafc;
+    --cobalt: #1f3fe0;
+    --track: #eef0f6;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    padding: 0 0 6rem;
+  }
+
+  header.masthead {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+
+  .herotitle {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 4rem);
+    letter-spacing: -0.01em;
+    color: var(--cobalt);
+    margin: 0 0 0.9rem;
+    line-height: 1.05;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--cobalt);
+    margin-bottom: 1.3rem;
+  }
+
+  .lede {
+    font-size: 1rem;
+    color: var(--ink-dim);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  nav.jump {
+    max-width: 900px;
+    margin: 1.6rem auto 1rem;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.6rem;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+  }
+
+  nav.jump a {
+    text-decoration: none;
+    color: var(--ink-dim);
+    border: 1px solid var(--rule-strong);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    transition: all 0.15s ease;
+  }
+
+  nav.jump a:hover {
+    color: #ffffff;
+    background: var(--cobalt);
+    border-color: var(--cobalt);
+  }
+
+  nav.jump a.solo-link {
+    border-style: dashed;
+    color: var(--ink-faint);
+  }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 0;
+  }
+
+  section.shelf {
+    margin-bottom: 2.6rem;
+  }
+
+  .shelf-tag {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+
+  .shelf-tag .num {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: var(--cobalt);
+  }
+
+  .shelf-tag .word {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--ink-dim);
+  }
+
+  .shelf-tag .count {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+  }
+
+  .colhead {
+    display: grid;
+    grid-template-columns: 1fr 120px 78px;
+    gap: 0.8rem;
+    padding: 0.5rem 0.5rem 0.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+  }
+
+  .colhead div:nth-child(2), .colhead div:nth-child(3) {
+    text-align: right;
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 120px 78px;
+    grid-template-areas: "name complexity rating";
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.42rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .row.alt {
+    background: var(--stripe);
+  }
+
+  .name {
+    grid-area: name;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .complexity {
+    grid-area: complexity;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .cbar {
+    width: 56px;
+    height: 7px;
+    background: var(--track);
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .cfill {
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  .cpct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-dim);
+    width: 36px;
+    text-align: right;
+  }
+
+  .rating {
+    grid-area: rating;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .solo-wrap {
+    max-width: 760px;
+    margin: 1rem auto 0;
+    padding: 2.4rem 1.5rem 0;
+    border-top: 1px dashed var(--rule-strong);
+  }
+
+  .solo-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--ink-faint);
+    text-align: center;
+    margin-bottom: 1.6rem;
+  }
+
+  @media (max-width: 560px) {
+    .colhead {
+      grid-template-columns: 1fr auto;
+      gap: 0.6rem;
+    }
+
+    .colhead div:first-child { display: none; }
+    .colhead div:nth-child(2) { text-align: left; }
+    .colhead div:nth-child(3) { text-align: right; }
+
+    .row {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "name name"
+        "complexity rating";
+      row-gap: 0.3rem;
+      column-gap: 0.6rem;
+      padding: 0.6rem 0.5rem;
+    }
+
+    .name {
+      font-size: 0.92rem;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: unset;
+      line-height: 1.3;
+    }
+
+    .complexity { justify-content: flex-start; }
+    .cbar { width: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1 class="herotitle">The Shelf</h1>
+  <div class="eyebrow">From My Personal Board Game Collection</div>
+  <p class="lede">The best games to play at each player number. One shelf per player count, best-rated first. Rating and Complexity shown is relative to the other games at that same count.</p>
+</header>
+
+<nav class="jump">
+{{NAV}}
+</nav>
+
+<main>
+
+{{SHELVES}}
+
+</main>
+
+<div class="solo-wrap" id="psolo">
+  <div class="solo-note">just in case you're interested in playing something by yourself</div>
+  {{SOLO}}
+</div>
+
+</body>
+</html>

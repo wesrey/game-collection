@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wes' Board Game Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page: #ffffff;
+    --ink: #12131a;
+    --ink-dim: #5b5d6b;
+    --ink-faint: #9799a6;
+    --rule: #e4e4ea;
+    --rule-strong: #cfd0da;
+    --stripe: #fafafc;
+    --cobalt: #1f3fe0;
+    --track: #eef0f6;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    padding: 0 0 6rem;
+  }
+
+  header.masthead {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+
+  .herotitle {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 4rem);
+    letter-spacing: -0.01em;
+    color: var(--cobalt);
+    margin: 0 0 0.9rem;
+    line-height: 1.05;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--cobalt);
+    margin-bottom: 1.3rem;
+  }
+
+  .lede {
+    font-size: 1rem;
+    color: var(--ink-dim);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  nav.jump {
+    max-width: 900px;
+    margin: 1.6rem auto 1rem;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.6rem;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+  }
+
+  nav.jump a {
+    text-decoration: none;
+    color: var(--ink-dim);
+    border: 1px solid var(--rule-strong);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    transition: all 0.15s ease;
+  }
+
+  nav.jump a:hover {
+    color: #ffffff;
+    background: var(--cobalt);
+    border-color: var(--cobalt);
+  }
+
+  nav.jump a.solo-link {
+    border-style: dashed;
+    color: var(--ink-faint);
+  }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 0;
+  }
+
+  section.shelf {
+    margin-bottom: 2.6rem;
+  }
+
+  .shelf-tag {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+
+  .shelf-tag .num {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: var(--cobalt);
+  }
+
+  .shelf-tag .word {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--ink-dim);
+  }
+
+  .shelf-tag .count {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+  }
+
+  .colhead {
+    display: grid;
+    grid-template-columns: 1fr 120px 78px;
+    gap: 0.8rem;
+    padding: 0.5rem 0.5rem 0.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+  }
+
+  .colhead div:nth-child(2), .colhead div:nth-child(3) {
+    text-align: right;
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 120px 78px;
+    grid-template-areas: "name complexity rating";
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.42rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .row.alt {
+    background: var(--stripe);
+  }
+
+  .name {
+    grid-area: name;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .complexity {
+    grid-area: complexity;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .cbar {
+    width: 56px;
+    height: 7px;
+    background: var(--track);
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .cfill {
+    height: 100%;
+    border-radius: 4px;
+  }
+
+  .cpct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-dim);
+    width: 36px;
+    text-align: right;
+  }
+
+  .rating {
+    grid-area: rating;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .solo-wrap {
+    max-width: 760px;
+    margin: 1rem auto 0;
+    padding: 2.4rem 1.5rem 0;
+    border-top: 1px dashed var(--rule-strong);
+  }
+
+  .solo-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--ink-faint);
+    text-align: center;
+    margin-bottom: 1.6rem;
+  }
+
+  @media (max-width: 560px) {
+    .colhead {
+      grid-template-columns: 1fr auto;
+      gap: 0.6rem;
+    }
+
+    .colhead div:first-child { display: none; }
+    .colhead div:nth-child(2) { text-align: left; }
+    .colhead div:nth-child(3) { text-align: right; }
+
+    .row {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "name name"
+        "complexity rating";
+      row-gap: 0.3rem;
+      column-gap: 0.6rem;
+      padding: 0.6rem 0.5rem;
+    }
+
+    .name {
+      font-size: 0.92rem;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: unset;
+      line-height: 1.3;
+    }
+
+    .complexity { justify-content: flex-start; }
+    .cbar { width: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1 class="herotitle">The Shelf</h1>
+  <div class="eyebrow">From My Personal Board Game Collection</div>
+  <p class="lede">The best games to play at each player number. One shelf per player count, best-rated first. Rating and Complexity shown is relative to the other games at that same count.</p>
+</header>
+
+<nav class="jump">
+<a href="#p2">2</a>
+<a href="#p3">3</a>
+<a href="#p4">4</a>
+<a href="#p5">5</a>
+<a href="#p6">6</a>
+<a href="#p7">7</a>
+<a href="#p8">8</a>
+<a href="#p9to12">9–12</a>
+<a href="#p13plus">13+</a>
+<a href="#psolo" class="solo-link">Solo</a>
+</nav>
+
+<main>
+
+<section class="shelf" id="p2">
+  <div class="shelf-tag"><span class="num">2</span><span class="word">Players</span><span class="count">26 games</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Cascadia</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:74%; background:#4f68e7;"></div></div>
+    <span class="cpct">74%</span>
+  </div>
+  <div class="rating">100%</div>
+</div>
+<div class="row alt">
+  <div class="name">Race for the Galaxy</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1b2f9c;"></div></div>
+    <span class="cpct">120%</span>
+  </div>
+  <div class="rating">93%</div>
+</div>
+<div class="row">
+  <div class="name">Azul</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:71%; background:#556de8;"></div></div>
+    <span class="cpct">71%</span>
+  </div>
+  <div class="rating">92%</div>
+</div>
+<div class="row alt">
+  <div class="name">The Quest for El Dorado</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:78%; background:#4862e6;"></div></div>
+    <span class="cpct">78%</span>
+  </div>
+  <div class="rating">88%</div>
+</div>
+<div class="row">
+  <div class="name">Patchwork</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:64%; background:#6278ea;"></div></div>
+    <span class="cpct">64%</span>
+  </div>
+  <div class="rating">83%</div>
+</div>
+<div class="row alt">
+  <div class="name">Star Realms</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:76%; background:#4b65e6;"></div></div>
+    <span class="cpct">76%</span>
+  </div>
+  <div class="rating">79%</div>
+</div>
+<div class="row">
+  <div class="name">Targi</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:94%; background:#2a48e2;"></div></div>
+    <span class="cpct">94%</span>
+  </div>
+  <div class="rating">79%</div>
+</div>
+<div class="row alt">
+  <div class="name">Jaipur</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
+    <span class="cpct">59%</span>
+  </div>
+  <div class="rating">76%</div>
+</div>
+<div class="row">
+  <div class="name">Star Wars: The Deckbuilding Game</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:82%; background:#405ce5;"></div></div>
+    <span class="cpct">82%</span>
+  </div>
+  <div class="rating">76%</div>
+</div>
+<div class="row alt">
+  <div class="name">Sagrada</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:77%; background:#4964e6;"></div></div>
+    <span class="cpct">77%</span>
+  </div>
+  <div class="rating">74%</div>
+</div>
+<div class="row">
+  <div class="name">Carcassonne</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:75%; background:#4d67e7;"></div></div>
+    <span class="cpct">75%</span>
+  </div>
+  <div class="rating">73%</div>
+</div>
+<div class="row alt">
+  <div class="name">Azul: Summer Pavilion</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:83%; background:#3e5ae5;"></div></div>
+    <span class="cpct">83%</span>
+  </div>
+  <div class="rating">72%</div>
+</div>
+<div class="row">
+  <div class="name">KLASK</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:42%; background:#8b9bef;"></div></div>
+    <span class="cpct">42%</span>
+  </div>
+  <div class="rating">70%</div>
+</div>
+<div class="row alt">
+  <div class="name">Toy Battle</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
+    <span class="cpct">59%</span>
+  </div>
+  <div class="rating">68%</div>
+</div>
+<div class="row">
+  <div class="name">Santorini</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:69%; background:#5870e8;"></div></div>
+    <span class="cpct">69%</span>
+  </div>
+  <div class="rating">65%</div>
+</div>
+<div class="row alt">
+  <div class="name">Battle Line</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:76%; background:#4b65e6;"></div></div>
+    <span class="cpct">76%</span>
+  </div>
+  <div class="rating">64%</div>
+</div>
+<div class="row">
+  <div class="name">Hive</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:92%; background:#2e4ce2;"></div></div>
+    <span class="cpct">92%</span>
+  </div>
+  <div class="rating">64%</div>
+</div>
+<div class="row alt">
+  <div class="name">Lost Cities</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
+    <span class="cpct">59%</span>
+  </div>
+  <div class="rating">63%</div>
+</div>
+<div class="row">
+  <div class="name">Onitama</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:66%; background:#5e75e9;"></div></div>
+    <span class="cpct">66%</span>
+  </div>
+  <div class="rating">62%</div>
+</div>
+<div class="row alt">
+  <div class="name">Air, Land, &amp; Sea</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:69%; background:#5870e8;"></div></div>
+    <span class="cpct">69%</span>
+  </div>
+  <div class="rating">58%</div>
+</div>
+<div class="row">
+  <div class="name">Arboretum</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:85%; background:#3b57e4;"></div></div>
+    <span class="cpct">85%</span>
+  </div>
+  <div class="rating">57%</div>
+</div>
+<div class="row alt">
+  <div class="name">The Fox in the Forest</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:65%; background:#6077e9;"></div></div>
+    <span class="cpct">65%</span>
+  </div>
+  <div class="rating">44%</div>
+</div>
+<div class="row">
+  <div class="name">Whitehall Mystery</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:85%; background:#3b57e4;"></div></div>
+    <span class="cpct">85%</span>
+  </div>
+  <div class="rating">41%</div>
+</div>
+<div class="row alt">
+  <div class="name">Quarto</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:75%; background:#4d67e7;"></div></div>
+    <span class="cpct">75%</span>
+  </div>
+  <div class="rating">26%</div>
+</div>
+<div class="row">
+  <div class="name">Monkey Palace</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:79%; background:#4660e6;"></div></div>
+    <span class="cpct">79%</span>
+  </div>
+  <div class="rating">9%</div>
+</div>
+<div class="row alt">
+  <div class="name">Spring Meadow</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:73%; background:#516ae7;"></div></div>
+    <span class="cpct">73%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+
+<section class="shelf" id="p3">
+  <div class="shelf-tag"><span class="num">3</span><span class="word">Players</span><span class="count">19 games</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Brass: Birmingham</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#141529;"></div></div>
+    <span class="cpct">154%</span>
+  </div>
+  <div class="rating">100%</div>
+</div>
+<div class="row alt">
+  <div class="name">Cascadia</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:74%; background:#4f68e7;"></div></div>
+    <span class="cpct">74%</span>
+  </div>
+  <div class="rating">75%</div>
+</div>
+<div class="row">
+  <div class="name">Dominion</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:94%; background:#2a48e2;"></div></div>
+    <span class="cpct">94%</span>
+  </div>
+  <div class="rating">65%</div>
+</div>
+<div class="row alt">
+  <div class="name">Welcome To...</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:74%; background:#4f68e7;"></div></div>
+    <span class="cpct">74%</span>
+  </div>
+  <div class="rating">61%</div>
+</div>
+<div class="row">
+  <div class="name">Azul: Summer Pavilion</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:83%; background:#3e5ae5;"></div></div>
+    <span class="cpct">83%</span>
+  </div>
+  <div class="rating">59%</div>
+</div>
+<div class="row alt">
+  <div class="name">Splendor</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:71%; background:#556de8;"></div></div>
+    <span class="cpct">71%</span>
+  </div>
+  <div class="rating">59%</div>
+</div>
+<div class="row">
+  <div class="name">Suburbia</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1d37be;"></div></div>
+    <span class="cpct">110%</span>
+  </div>
+  <div class="rating">58%</div>
+</div>
+<div class="row alt">
+  <div class="name">Burgle Bros.</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:93%; background:#2c4ae2;"></div></div>
+    <span class="cpct">93%</span>
+  </div>
+  <div class="rating">50%</div>
+</div>
+<div class="row">
+  <div class="name">Notre Dame</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1d37be;"></div></div>
+    <span class="cpct">110%</span>
+  </div>
+  <div class="rating">49%</div>
+</div>
+<div class="row alt">
+  <div class="name">Downforce</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:69%; background:#5870e8;"></div></div>
+    <span class="cpct">69%</span>
+  </div>
+  <div class="rating">47%</div>
+</div>
+<div class="row">
+  <div class="name">Alhambra</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:84%; background:#3c58e4;"></div></div>
+    <span class="cpct">84%</span>
+  </div>
+  <div class="rating">44%</div>
+</div>
+<div class="row alt">
+  <div class="name">Pandemic: The Cure</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:83%; background:#3e5ae5;"></div></div>
+    <span class="cpct">83%</span>
+  </div>
+  <div class="rating">44%</div>
+</div>
+<div class="row">
+  <div class="name">Point Salad</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:46%; background:#8395ee;"></div></div>
+    <span class="cpct">46%</span>
+  </div>
+  <div class="rating">44%</div>
+</div>
+<div class="row alt">
+  <div class="name">Can&#x27;t Stop</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:46%; background:#8395ee;"></div></div>
+    <span class="cpct">46%</span>
+  </div>
+  <div class="rating">40%</div>
+</div>
+<div class="row">
+  <div class="name">Blue Moon City</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:91%; background:#2f4de3;"></div></div>
+    <span class="cpct">91%</span>
+  </div>
+  <div class="rating">36%</div>
+</div>
+<div class="row alt">
+  <div class="name">NMBR 9</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:49%; background:#7e90ed;"></div></div>
+    <span class="cpct">49%</span>
+  </div>
+  <div class="rating">29%</div>
+</div>
+<div class="row">
+  <div class="name">Qwinto</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:52%; background:#788bed;"></div></div>
+    <span class="cpct">52%</span>
+  </div>
+  <div class="rating">25%</div>
+</div>
+<div class="row alt">
+  <div class="name">Gravwell: Escape from the 9th Dimension</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:68%; background:#5a72e9;"></div></div>
+    <span class="cpct">68%</span>
+  </div>
+  <div class="rating">22%</div>
+</div>
+<div class="row">
+  <div class="name">Pick-a-Dog</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:42%; background:#8b9bef;"></div></div>
+    <span class="cpct">42%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+
+<section class="shelf" id="p4">
+  <div class="shelf-tag"><span class="num">4</span><span class="word">Players</span><span class="count">65 games</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Brass: Birmingham</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#141529;"></div></div>
+    <span class="cpct">154%</span>
+  </div>
+  <div class="rating">100%</div>
+</div>
+<div class="row alt">
+  <div class="name">Concordia</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1b30a0;"></div></div>
+    <span class="cpct">119%</span>
+  </div>
+  <div class="rating">83%</div>
+</div>
+<div class="row">
+  <div class="name">Puerto Rico</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#192777;"></div></div>
+    <span class="cpct">131%</span>
+  </div>
+  <div class="rating">77%</div>
+</div>
+<div class="row alt">
+  <div class="name">Power Grid</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#19287a;"></div></div>
+    <span class="cpct">130%</span>
+  </div>
+  <div class="rating">75%</div>
+</div>
+<div class="row">
+  <div class="name">Quacks</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:78%; background:#4862e6;"></div></div>
+    <span class="cpct">78%</span>
+  </div>
+  <div class="rating">74%</div>
+</div>
+<div class="row alt">
+  <div class="name">7 Wonders</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:93%; background:#2c4ae2;"></div></div>
+    <span class="cpct">93%</span>
+  </div>
+  <div class="rating">70%</div>
+</div>
+<div class="row">
+  <div class="name">Decrypto</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:73%; background:#516ae7;"></div></div>
+    <span class="cpct">73%</span>
+  </div>
+  <div class="rating">70%</div>
+</div>
+<div class="row alt">
+  <div class="name">The Quest for El Dorado</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:78%; background:#4862e6;"></div></div>
+    <span class="cpct">78%</span>
+  </div>
+  <div class="rating">70%</div>
+</div>
+<div class="row">
+  <div class="name">Tigris &amp; Euphrates</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#17205c;"></div></div>
+    <span class="cpct">139%</span>
+  </div>
+  <div class="rating">69%</div>
+</div>
+<div class="row alt">
+  <div class="name">Pandemic</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:96%; background:#2645e1;"></div></div>
+    <span class="cpct">96%</span>
+  </div>
+  <div class="rating">65%</div>
+</div>
+<div class="row">
+  <div class="name">Ticket to Ride: Europe</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:77%; background:#4964e6;"></div></div>
+    <span class="cpct">77%</span>
+  </div>
+  <div class="rating">65%</div>
+</div>
+<div class="row alt">
+  <div class="name">Welcome To...</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:74%; background:#4f68e7;"></div></div>
+    <span class="cpct">74%</span>
+  </div>
+  <div class="rating">63%</div>
+</div>
+<div class="row">
+  <div class="name">Modern Art</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:91%; background:#2f4de3;"></div></div>
+    <span class="cpct">91%</span>
+  </div>
+  <div class="rating">62%</div>
+</div>
+<div class="row alt">
+  <div class="name">Dead of Winter: A Crossroads Game</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1b2f99;"></div></div>
+    <span class="cpct">121%</span>
+  </div>
+  <div class="rating">60%</div>
+</div>
+<div class="row">
+  <div class="name">Ticket to Ride</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:73%; background:#516ae7;"></div></div>
+    <span class="cpct">73%</span>
+  </div>
+  <div class="rating">60%</div>
+</div>
+<div class="row alt">
+  <div class="name">Sushi Go Party!</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:53%; background:#768aec;"></div></div>
+    <span class="cpct">53%</span>
+  </div>
+  <div class="rating">58%</div>
+</div>
+<div class="row">
+  <div class="name">Acquire</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:99%; background:#2040e1;"></div></div>
+    <span class="cpct">99%</span>
+  </div>
+  <div class="rating">55%</div>
+</div>
+<div class="row alt">
+  <div class="name">Cat in the Box: Deluxe Edition</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:82%; background:#405ce5;"></div></div>
+    <span class="cpct">82%</span>
+  </div>
+  <div class="rating">55%</div>
+</div>
+<div class="row">
+  <div class="name">Love Letter</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:47%; background:#8193ee;"></div></div>
+    <span class="cpct">47%</span>
+  </div>
+  <div class="rating">55%</div>
+</div>
+<div class="row alt">
+  <div class="name">Small World</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:94%; background:#2a48e2;"></div></div>
+    <span class="cpct">94%</span>
+  </div>
+  <div class="rating">54%</div>
+</div>
+<div class="row">
+  <div class="name">Notre Dame</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1d37be;"></div></div>
+    <span class="cpct">110%</span>
+  </div>
+  <div class="rating">52%</div>
+</div>
+<div class="row alt">
+  <div class="name">The Pillars of the Earth</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1c35b4;"></div></div>
+    <span class="cpct">113%</span>
+  </div>
+  <div class="rating">52%</div>
+</div>
+<div class="row">
+  <div class="name">Dice Forge</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:79%; background:#4660e6;"></div></div>
+    <span class="cpct">79%</span>
+  </div>
+  <div class="rating">51%</div>
+</div>
+<div class="row alt">
+  <div class="name">King of Tokyo</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
+    <span class="cpct">59%</span>
+  </div>
+  <div class="rating">51%</div>
+</div>
+<div class="row">
+  <div class="name">High Society</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
+    <span class="cpct">59%</span>
+  </div>
+  <div class="rating">50%</div>
+</div>
+<div class="row alt">
+  <div class="name">Libertalia: Winds of Galecrest</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:87%; background:#3754e4;"></div></div>
+    <span class="cpct">87%</span>
+  </div>
+  <div class="rating">50%</div>
+</div>
+<div class="row">
+  <div class="name">Bohnanza</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:67%; background:#5c74e9;"></div></div>
+    <span class="cpct">67%</span>
+  </div>
+  <div class="rating">49%</div>
+</div>
+<div class="row alt">
+  <div class="name">Kingsburg</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:97%; background:#2444e1;"></div></div>
+    <span class="cpct">97%</span>
+  </div>
+  <div class="rating">49%</div>
+</div>
+<div class="row">
+  <div class="name">No Thanks!</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">49%</div>
+</div>
+<div class="row alt">
+  <div class="name">Stockpile</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:85%; background:#3b57e4;"></div></div>
+    <span class="cpct">85%</span>
+  </div>
+  <div class="rating">49%</div>
+</div>
+<div class="row">
+  <div class="name">Lords of Vegas</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:94%; background:#2a48e2;"></div></div>
+    <span class="cpct">94%</span>
+  </div>
+  <div class="rating">48%</div>
+</div>
+<div class="row alt">
+  <div class="name">Catan</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:91%; background:#2f4de3;"></div></div>
+    <span class="cpct">91%</span>
+  </div>
+  <div class="rating">47%</div>
+</div>
+<div class="row">
+  <div class="name">Forbidden Desert</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:82%; background:#405ce5;"></div></div>
+    <span class="cpct">82%</span>
+  </div>
+  <div class="rating">47%</div>
+</div>
+<div class="row alt">
+  <div class="name">Pandemic: The Cure</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:83%; background:#3e5ae5;"></div></div>
+    <span class="cpct">83%</span>
+  </div>
+  <div class="rating">47%</div>
+</div>
+<div class="row">
+  <div class="name">Camel Up</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:60%; background:#697feb;"></div></div>
+    <span class="cpct">60%</span>
+  </div>
+  <div class="rating">46%</div>
+</div>
+<div class="row alt">
+  <div class="name">Coloretto</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:51%; background:#7a8ded;"></div></div>
+    <span class="cpct">51%</span>
+  </div>
+  <div class="rating">44%</div>
+</div>
+<div class="row">
+  <div class="name">Magic Maze</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:70%; background:#566fe8;"></div></div>
+    <span class="cpct">70%</span>
+  </div>
+  <div class="rating">43%</div>
+</div>
+<div class="row alt">
+  <div class="name">Tokaido</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:70%; background:#566fe8;"></div></div>
+    <span class="cpct">70%</span>
+  </div>
+  <div class="rating">41%</div>
+</div>
+<div class="row">
+  <div class="name">Blokus</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:69%; background:#5870e8;"></div></div>
+    <span class="cpct">69%</span>
+  </div>
+  <div class="rating">40%</div>
+</div>
+<div class="row alt">
+  <div class="name">Blue Moon City</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:91%; background:#2f4de3;"></div></div>
+    <span class="cpct">91%</span>
+  </div>
+  <div class="rating">40%</div>
+</div>
+<div class="row">
+  <div class="name">Deep Sea Adventure</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:47%; background:#8193ee;"></div></div>
+    <span class="cpct">47%</span>
+  </div>
+  <div class="rating">39%</div>
+</div>
+<div class="row alt">
+  <div class="name">Forbidden Island</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:70%; background:#566fe8;"></div></div>
+    <span class="cpct">70%</span>
+  </div>
+  <div class="rating">38%</div>
+</div>
+<div class="row">
+  <div class="name">Qwirkle</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:63%; background:#647aea;"></div></div>
+    <span class="cpct">63%</span>
+  </div>
+  <div class="rating">37%</div>
+</div>
+<div class="row alt">
+  <div class="name">ICECOOL</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:42%; background:#8b9bef;"></div></div>
+    <span class="cpct">42%</span>
+  </div>
+  <div class="rating">35%</div>
+</div>
+<div class="row">
+  <div class="name">Strike</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:41%; background:#8c9def;"></div></div>
+    <span class="cpct">41%</span>
+  </div>
+  <div class="rating">34%</div>
+</div>
+<div class="row alt">
+  <div class="name">Tsuro</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:49%; background:#7e90ed;"></div></div>
+    <span class="cpct">49%</span>
+  </div>
+  <div class="rating">34%</div>
+</div>
+<div class="row">
+  <div class="name">NMBR 9</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:49%; background:#7e90ed;"></div></div>
+    <span class="cpct">49%</span>
+  </div>
+  <div class="rating">33%</div>
+</div>
+<div class="row alt">
+  <div class="name">Phantom Ink</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:46%; background:#8395ee;"></div></div>
+    <span class="cpct">46%</span>
+  </div>
+  <div class="rating">33%</div>
+</div>
+<div class="row">
+  <div class="name">Castle Panic</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:66%; background:#5e75e9;"></div></div>
+    <span class="cpct">66%</span>
+  </div>
+  <div class="rating">32%</div>
+</div>
+<div class="row alt">
+  <div class="name">Sushi Roll</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:51%; background:#7a8ded;"></div></div>
+    <span class="cpct">51%</span>
+  </div>
+  <div class="rating">32%</div>
+</div>
+<div class="row">
+  <div class="name">Things in Rings</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:54%; background:#7488ec;"></div></div>
+    <span class="cpct">54%</span>
+  </div>
+  <div class="rating">32%</div>
+</div>
+<div class="row alt">
+  <div class="name">Witness</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:62%; background:#657bea;"></div></div>
+    <span class="cpct">62%</span>
+  </div>
+  <div class="rating">31%</div>
+</div>
+<div class="row">
+  <div class="name">Qwinto</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:52%; background:#788bed;"></div></div>
+    <span class="cpct">52%</span>
+  </div>
+  <div class="rating">30%</div>
+</div>
+<div class="row alt">
+  <div class="name">TransAmerica</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:54%; background:#7488ec;"></div></div>
+    <span class="cpct">54%</span>
+  </div>
+  <div class="rating">30%</div>
+</div>
+<div class="row">
+  <div class="name">Gravwell: Escape from the 9th Dimension</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:68%; background:#5a72e9;"></div></div>
+    <span class="cpct">68%</span>
+  </div>
+  <div class="rating">26%</div>
+</div>
+<div class="row alt">
+  <div class="name">L.L.A.M.A.</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:42%; background:#8b9bef;"></div></div>
+    <span class="cpct">42%</span>
+  </div>
+  <div class="rating">25%</div>
+</div>
+<div class="row">
+  <div class="name">PUSH</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:42%; background:#8b9bef;"></div></div>
+    <span class="cpct">42%</span>
+  </div>
+  <div class="rating">24%</div>
+</div>
+<div class="row alt">
+  <div class="name">Spring Meadow</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:73%; background:#516ae7;"></div></div>
+    <span class="cpct">73%</span>
+  </div>
+  <div class="rating">21%</div>
+</div>
+<div class="row">
+  <div class="name">Chicken Cha Cha Cha</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">18%</div>
+</div>
+<div class="row alt">
+  <div class="name">Word on the Street</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:54%; background:#7488ec;"></div></div>
+    <span class="cpct">54%</span>
+  </div>
+  <div class="rating">18%</div>
+</div>
+<div class="row">
+  <div class="name">Clue: The Great Museum Caper</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:77%; background:#4964e6;"></div></div>
+    <span class="cpct">77%</span>
+  </div>
+  <div class="rating">16%</div>
+</div>
+<div class="row alt">
+  <div class="name">World Championship Russian Roulette</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:52%; background:#788bed;"></div></div>
+    <span class="cpct">52%</span>
+  </div>
+  <div class="rating">13%</div>
+</div>
+<div class="row">
+  <div class="name">Pick-a-Dog</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:42%; background:#8b9bef;"></div></div>
+    <span class="cpct">42%</span>
+  </div>
+  <div class="rating">6%</div>
+</div>
+<div class="row alt">
+  <div class="name">Good Face Bad Face</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:44%; background:#8798ef;"></div></div>
+    <span class="cpct">44%</span>
+  </div>
+  <div class="rating">1%</div>
+</div>
+<div class="row">
+  <div class="name">Clue</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:66%; background:#5e75e9;"></div></div>
+    <span class="cpct">66%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+
+<section class="shelf" id="p5">
+  <div class="shelf-tag"><span class="num">5</span><span class="word">Players</span><span class="count">37 games</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Heat: Pedal to the Metal</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:88%; background:#3552e3;"></div></div>
+    <span class="cpct">88%</span>
+  </div>
+  <div class="rating">100%</div>
+</div>
+<div class="row alt">
+  <div class="name">Power Grid</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#19287a;"></div></div>
+    <span class="cpct">130%</span>
+  </div>
+  <div class="rating">95%</div>
+</div>
+<div class="row">
+  <div class="name">El Grande</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1c32a6;"></div></div>
+    <span class="cpct">117%</span>
+  </div>
+  <div class="rating">91%</div>
+</div>
+<div class="row alt">
+  <div class="name">7 Wonders</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:93%; background:#2c4ae2;"></div></div>
+    <span class="cpct">93%</span>
+  </div>
+  <div class="rating">89%</div>
+</div>
+<div class="row">
+  <div class="name">Battlestar Galactica: The Board Game</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#19287a;"></div></div>
+    <span class="cpct">130%</span>
+  </div>
+  <div class="rating">88%</div>
+</div>
+<div class="row alt">
+  <div class="name">Modern Art</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:91%; background:#2f4de3;"></div></div>
+    <span class="cpct">91%</span>
+  </div>
+  <div class="rating">79%</div>
+</div>
+<div class="row">
+  <div class="name">Cosmic Encounter</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1e3dd6;"></div></div>
+    <span class="cpct">103%</span>
+  </div>
+  <div class="rating">78%</div>
+</div>
+<div class="row alt">
+  <div class="name">Sushi Go Party!</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:53%; background:#768aec;"></div></div>
+    <span class="cpct">53%</span>
+  </div>
+  <div class="rating">74%</div>
+</div>
+<div class="row">
+  <div class="name">For Sale</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:50%; background:#7c8fed;"></div></div>
+    <span class="cpct">50%</span>
+  </div>
+  <div class="rating">71%</div>
+</div>
+<div class="row alt">
+  <div class="name">Chinatown</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:89%; background:#3350e3;"></div></div>
+    <span class="cpct">89%</span>
+  </div>
+  <div class="rating">69%</div>
+</div>
+<div class="row">
+  <div class="name">Skull</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">65%</div>
+</div>
+<div class="row alt">
+  <div class="name">King of Tokyo</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
+    <span class="cpct">59%</span>
+  </div>
+  <div class="rating">64%</div>
+</div>
+<div class="row">
+  <div class="name">Libertalia: Winds of Galecrest</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:87%; background:#3754e4;"></div></div>
+    <span class="cpct">87%</span>
+  </div>
+  <div class="rating">64%</div>
+</div>
+<div class="row alt">
+  <div class="name">Bohnanza</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:67%; background:#5c74e9;"></div></div>
+    <span class="cpct">67%</span>
+  </div>
+  <div class="rating">63%</div>
+</div>
+<div class="row">
+  <div class="name">High Society</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
+    <span class="cpct">59%</span>
+  </div>
+  <div class="rating">63%</div>
+</div>
+<div class="row alt">
+  <div class="name">Colt Express</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:73%; background:#516ae7;"></div></div>
+    <span class="cpct">73%</span>
+  </div>
+  <div class="rating">62%</div>
+</div>
+<div class="row">
+  <div class="name">No Thanks!</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">62%</div>
+</div>
+<div class="row alt">
+  <div class="name">Stockpile</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:85%; background:#3b57e4;"></div></div>
+    <span class="cpct">85%</span>
+  </div>
+  <div class="rating">62%</div>
+</div>
+<div class="row">
+  <div class="name">Citadels</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:82%; background:#405ce5;"></div></div>
+    <span class="cpct">82%</span>
+  </div>
+  <div class="rating">61%</div>
+</div>
+<div class="row alt">
+  <div class="name">Shadows over Camelot</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1e3dd6;"></div></div>
+    <span class="cpct">103%</span>
+  </div>
+  <div class="rating">61%</div>
+</div>
+<div class="row">
+  <div class="name">Sheriff of Nottingham</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:66%; background:#5e75e9;"></div></div>
+    <span class="cpct">66%</span>
+  </div>
+  <div class="rating">60%</div>
+</div>
+<div class="row alt">
+  <div class="name">Camel Up</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:60%; background:#697feb;"></div></div>
+    <span class="cpct">60%</span>
+  </div>
+  <div class="rating">59%</div>
+</div>
+<div class="row">
+  <div class="name">Stella: Dixit Universe</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:47%; background:#8193ee;"></div></div>
+    <span class="cpct">47%</span>
+  </div>
+  <div class="rating">49%</div>
+</div>
+<div class="row alt">
+  <div class="name">Cockroach Poker</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:44%; background:#8798ef;"></div></div>
+    <span class="cpct">44%</span>
+  </div>
+  <div class="rating">46%</div>
+</div>
+<div class="row">
+  <div class="name">Strike</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:41%; background:#8c9def;"></div></div>
+    <span class="cpct">41%</span>
+  </div>
+  <div class="rating">43%</div>
+</div>
+<div class="row alt">
+  <div class="name">TransAmerica</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:54%; background:#7488ec;"></div></div>
+    <span class="cpct">54%</span>
+  </div>
+  <div class="rating">38%</div>
+</div>
+<div class="row">
+  <div class="name">Anomia</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:42%; background:#8b9bef;"></div></div>
+    <span class="cpct">42%</span>
+  </div>
+  <div class="rating">33%</div>
+</div>
+<div class="row alt">
+  <div class="name">L.L.A.M.A.</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:42%; background:#8b9bef;"></div></div>
+    <span class="cpct">42%</span>
+  </div>
+  <div class="rating">32%</div>
+</div>
+<div class="row">
+  <div class="name">Pirate&#x27;s Cove</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:80%; background:#445fe5;"></div></div>
+    <span class="cpct">80%</span>
+  </div>
+  <div class="rating">32%</div>
+</div>
+<div class="row alt">
+  <div class="name">Take 5 &amp; Take A Number</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:55%; background:#7287ec;"></div></div>
+    <span class="cpct">55%</span>
+  </div>
+  <div class="rating">29%</div>
+</div>
+<div class="row">
+  <div class="name">Get Bit!</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">17%</div>
+</div>
+<div class="row alt">
+  <div class="name">World Championship Russian Roulette</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:52%; background:#788bed;"></div></div>
+    <span class="cpct">52%</span>
+  </div>
+  <div class="rating">17%</div>
+</div>
+<div class="row">
+  <div class="name">Kill Doctor Lucky</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:66%; background:#5e75e9;"></div></div>
+    <span class="cpct">66%</span>
+  </div>
+  <div class="rating">16%</div>
+</div>
+<div class="row alt">
+  <div class="name">Pairs</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">15%</div>
+</div>
+<div class="row">
+  <div class="name">Block Party</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:40%; background:#8e9ff0;"></div></div>
+    <span class="cpct">40%</span>
+  </div>
+  <div class="rating">3%</div>
+</div>
+<div class="row alt">
+  <div class="name">Good Face Bad Face</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:44%; background:#8798ef;"></div></div>
+    <span class="cpct">44%</span>
+  </div>
+  <div class="rating">2%</div>
+</div>
+<div class="row">
+  <div class="name">Clue</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:66%; background:#5e75e9;"></div></div>
+    <span class="cpct">66%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+
+<section class="shelf" id="p6">
+  <div class="shelf-tag"><span class="num">6</span><span class="word">Players</span><span class="count">28 games</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Heat: Pedal to the Metal</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:88%; background:#3552e3;"></div></div>
+    <span class="cpct">88%</span>
+  </div>
+  <div class="rating">100%</div>
+</div>
+<div class="row alt">
+  <div class="name">Decrypto</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:73%; background:#516ae7;"></div></div>
+    <span class="cpct">73%</span>
+  </div>
+  <div class="rating">88%</div>
+</div>
+<div class="row">
+  <div class="name">Codenames</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:50%; background:#7c8fed;"></div></div>
+    <span class="cpct">50%</span>
+  </div>
+  <div class="rating">82%</div>
+</div>
+<div class="row alt">
+  <div class="name">Just One</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:41%; background:#8c9def;"></div></div>
+    <span class="cpct">41%</span>
+  </div>
+  <div class="rating">82%</div>
+</div>
+<div class="row">
+  <div class="name">Deception: Murder in Hong Kong</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:64%; background:#6278ea;"></div></div>
+    <span class="cpct">64%</span>
+  </div>
+  <div class="rating">71%</div>
+</div>
+<div class="row alt">
+  <div class="name">Monikers</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:44%; background:#8798ef;"></div></div>
+    <span class="cpct">44%</span>
+  </div>
+  <div class="rating">71%</div>
+</div>
+<div class="row">
+  <div class="name">Skull</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">62%</div>
+</div>
+<div class="row alt">
+  <div class="name">Codenames: Pictures</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:49%; background:#7e90ed;"></div></div>
+    <span class="cpct">49%</span>
+  </div>
+  <div class="rating">61%</div>
+</div>
+<div class="row">
+  <div class="name">Downforce</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:69%; background:#5870e8;"></div></div>
+    <span class="cpct">69%</span>
+  </div>
+  <div class="rating">61%</div>
+</div>
+<div class="row alt">
+  <div class="name">Libertalia: Winds of Galecrest</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:87%; background:#3754e4;"></div></div>
+    <span class="cpct">87%</span>
+  </div>
+  <div class="rating">61%</div>
+</div>
+<div class="row">
+  <div class="name">Wavelength</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:44%; background:#8798ef;"></div></div>
+    <span class="cpct">44%</span>
+  </div>
+  <div class="rating">60%</div>
+</div>
+<div class="row alt">
+  <div class="name">Colt Express</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:73%; background:#516ae7;"></div></div>
+    <span class="cpct">73%</span>
+  </div>
+  <div class="rating">59%</div>
+</div>
+<div class="row">
+  <div class="name">Shadows over Camelot</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1e3dd6;"></div></div>
+    <span class="cpct">103%</span>
+  </div>
+  <div class="rating">58%</div>
+</div>
+<div class="row alt">
+  <div class="name">One Night Ultimate Werewolf</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:55%; background:#7287ec;"></div></div>
+    <span class="cpct">55%</span>
+  </div>
+  <div class="rating">54%</div>
+</div>
+<div class="row">
+  <div class="name">BANG! The Dice Game</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:51%; background:#7a8ded;"></div></div>
+    <span class="cpct">51%</span>
+  </div>
+  <div class="rating">47%</div>
+</div>
+<div class="row alt">
+  <div class="name">Diamant</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">47%</div>
+</div>
+<div class="row">
+  <div class="name">Stella: Dixit Universe</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:47%; background:#8193ee;"></div></div>
+    <span class="cpct">47%</span>
+  </div>
+  <div class="rating">45%</div>
+</div>
+<div class="row alt">
+  <div class="name">Letter Jam</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:79%; background:#4660e6;"></div></div>
+    <span class="cpct">79%</span>
+  </div>
+  <div class="rating">44%</div>
+</div>
+<div class="row">
+  <div class="name">Phantom Ink</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:46%; background:#8395ee;"></div></div>
+    <span class="cpct">46%</span>
+  </div>
+  <div class="rating">38%</div>
+</div>
+<div class="row alt">
+  <div class="name">Tsuro</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:49%; background:#7e90ed;"></div></div>
+    <span class="cpct">49%</span>
+  </div>
+  <div class="rating">38%</div>
+</div>
+<div class="row">
+  <div class="name">Werewords Deluxe Edition</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:52%; background:#788bed;"></div></div>
+    <span class="cpct">52%</span>
+  </div>
+  <div class="rating">38%</div>
+</div>
+<div class="row alt">
+  <div class="name">TransAmerica</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:54%; background:#7488ec;"></div></div>
+    <span class="cpct">54%</span>
+  </div>
+  <div class="rating">32%</div>
+</div>
+<div class="row">
+  <div class="name">Take 5 &amp; Take A Number</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:55%; background:#7287ec;"></div></div>
+    <span class="cpct">55%</span>
+  </div>
+  <div class="rating">23%</div>
+</div>
+<div class="row alt">
+  <div class="name">Word on the Street</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:54%; background:#7488ec;"></div></div>
+    <span class="cpct">54%</span>
+  </div>
+  <div class="rating">16%</div>
+</div>
+<div class="row">
+  <div class="name">Get Bit!</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">10%</div>
+</div>
+<div class="row alt">
+  <div class="name">World Championship Russian Roulette</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:52%; background:#788bed;"></div></div>
+    <span class="cpct">52%</span>
+  </div>
+  <div class="rating">10%</div>
+</div>
+<div class="row">
+  <div class="name">Pairs</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">8%</div>
+</div>
+<div class="row alt">
+  <div class="name">WINK</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:44%; background:#8798ef;"></div></div>
+    <span class="cpct">44%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+
+<section class="shelf" id="p7">
+  <div class="shelf-tag"><span class="num">7</span><span class="word">Players</span><span class="count">11 games</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Just One</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:41%; background:#8c9def;"></div></div>
+    <span class="cpct">41%</span>
+  </div>
+  <div class="rating">100%</div>
+</div>
+<div class="row alt">
+  <div class="name">The Resistance: Avalon</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:70%; background:#566fe8;"></div></div>
+    <span class="cpct">70%</span>
+  </div>
+  <div class="rating">89%</div>
+</div>
+<div class="row">
+  <div class="name">Deception: Murder in Hong Kong</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:64%; background:#6278ea;"></div></div>
+    <span class="cpct">64%</span>
+  </div>
+  <div class="rating">83%</div>
+</div>
+<div class="row alt">
+  <div class="name">Shadows over Camelot</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1e3dd6;"></div></div>
+    <span class="cpct">103%</span>
+  </div>
+  <div class="rating">60%</div>
+</div>
+<div class="row">
+  <div class="name">One Night Ultimate Werewolf</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:55%; background:#7287ec;"></div></div>
+    <span class="cpct">55%</span>
+  </div>
+  <div class="rating">55%</div>
+</div>
+<div class="row alt">
+  <div class="name">BANG! The Dice Game</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:51%; background:#7a8ded;"></div></div>
+    <span class="cpct">51%</span>
+  </div>
+  <div class="rating">44%</div>
+</div>
+<div class="row">
+  <div class="name">Diamant</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">44%</div>
+</div>
+<div class="row alt">
+  <div class="name">Saboteur</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:53%; background:#768aec;"></div></div>
+    <span class="cpct">53%</span>
+  </div>
+  <div class="rating">20%</div>
+</div>
+<div class="row">
+  <div class="name">BANG!</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:65%; background:#6077e9;"></div></div>
+    <span class="cpct">65%</span>
+  </div>
+  <div class="rating">13%</div>
+</div>
+<div class="row alt">
+  <div class="name">Take 5 &amp; Take A Number</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:55%; background:#7287ec;"></div></div>
+    <span class="cpct">55%</span>
+  </div>
+  <div class="rating">6%</div>
+</div>
+<div class="row">
+  <div class="name">Herd Mentality</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:40%; background:#8e9ff0;"></div></div>
+    <span class="cpct">40%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+
+<section class="shelf" id="p8">
+  <div class="shelf-tag"><span class="num">8</span><span class="word">Players</span><span class="count">10 games</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Codenames</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:50%; background:#7c8fed;"></div></div>
+    <span class="cpct">50%</span>
+  </div>
+  <div class="rating">100%</div>
+</div>
+<div class="row alt">
+  <div class="name">The Resistance: Avalon</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:70%; background:#566fe8;"></div></div>
+    <span class="cpct">70%</span>
+  </div>
+  <div class="rating">90%</div>
+</div>
+<div class="row">
+  <div class="name">Deception: Murder in Hong Kong</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:64%; background:#6278ea;"></div></div>
+    <span class="cpct">64%</span>
+  </div>
+  <div class="rating">83%</div>
+</div>
+<div class="row alt">
+  <div class="name">Monikers</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:44%; background:#8798ef;"></div></div>
+    <span class="cpct">44%</span>
+  </div>
+  <div class="rating">83%</div>
+</div>
+<div class="row">
+  <div class="name">Wavelength</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:44%; background:#8798ef;"></div></div>
+    <span class="cpct">44%</span>
+  </div>
+  <div class="rating">64%</div>
+</div>
+<div class="row alt">
+  <div class="name">One Night Ultimate Werewolf</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:55%; background:#7287ec;"></div></div>
+    <span class="cpct">55%</span>
+  </div>
+  <div class="rating">55%</div>
+</div>
+<div class="row">
+  <div class="name">Diamant</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
+    <span class="cpct">45%</span>
+  </div>
+  <div class="rating">44%</div>
+</div>
+<div class="row alt">
+  <div class="name">Werewords Deluxe Edition</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:52%; background:#788bed;"></div></div>
+    <span class="cpct">52%</span>
+  </div>
+  <div class="rating">29%</div>
+</div>
+<div class="row">
+  <div class="name">Saboteur</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:53%; background:#768aec;"></div></div>
+    <span class="cpct">53%</span>
+  </div>
+  <div class="rating">20%</div>
+</div>
+<div class="row alt">
+  <div class="name">Herd Mentality</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:40%; background:#8e9ff0;"></div></div>
+    <span class="cpct">40%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+
+<section class="shelf" id="p9to12">
+  <div class="shelf-tag"><span class="num">9–12</span><span class="word">Players</span><span class="count">1 game</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Monikers</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:44%; background:#8798ef;"></div></div>
+    <span class="cpct">44%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+
+<section class="shelf" id="p13plus">
+  <div class="shelf-tag"><span class="num">13+</span><span class="word">Players</span><span class="count">1 game</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Two Rooms and a Boom</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
+    <span class="cpct">59%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+
+</main>
+
+<div class="solo-wrap" id="psolo">
+  <div class="solo-note">just in case you're interested in playing something by yourself</div>
+  <section class="shelf" id="p1">
+  <div class="shelf-tag"><span class="num">1</span><span class="word">Player</span><span class="count">3 games</span></div>
+  <div class="colhead">
+  <div></div>
+  <div>Rel. Complexity</div>
+  <div>Rel. Rating</div>
+</div>
+  <div class="rows">
+    <div class="row">
+  <div class="name">Onirim (Second Edition)</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:64%; background:#6278ea;"></div></div>
+    <span class="cpct">64%</span>
+  </div>
+  <div class="rating">100%</div>
+</div>
+<div class="row alt">
+  <div class="name">Aerion</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:79%; background:#4660e6;"></div></div>
+    <span class="cpct">79%</span>
+  </div>
+  <div class="rating">39%</div>
+</div>
+<div class="row">
+  <div class="name">Paperback Adventures</div>
+  <div class="complexity">
+    <div class="cbar"><div class="cfill" style="width:100%; background:#1d38c2;"></div></div>
+    <span class="cpct">109%</span>
+  </div>
+  <div class="rating">0%</div>
+</div>
+  </div>
+</section>
+</div>
+
+</body>
+</html>
