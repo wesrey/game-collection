@@ -43,6 +43,17 @@ def esc(text):
     return html.escape(text, quote=True).replace("'", "&#x27;")
 
 
+def rating_color(pct):
+    t = min(max(pct, 0), 100) / 100
+    h = (0 + t * 130) / 360
+    l = 0.38 + t * (0.30 - 0.38)
+    s = 0.68
+    r, g, b = colorsys.hls_to_rgb(h, l, s)
+    return "#{:02x}{:02x}{:02x}".format(
+        round(r * 255), round(g * 255), round(b * 255)
+    )
+
+
 def complexity_color(pct):
     if pct <= 100:
         t = max(pct, 0) / 100
@@ -107,7 +118,7 @@ def render_row(row, alt):
     <div class="cbar"><div class="cfill" style="width:{width}%; background:{color};"></div></div>
     <span class="cpct">{row["weight_pct"]}%</span>
   </div>
-  <div class="rating">{row["rating_pct"]}%</div>
+  <div class="rating" style="color:{rating_color(row["rating_pct"])};">{row["rating_pct"]}%</div>
 </div>'''
 
 
