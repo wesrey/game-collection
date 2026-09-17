@@ -13,11 +13,16 @@ Easy to Learn flag: BGG's "preordered" checkbox is repurposed as an
 introductory-friendly flag, since it's otherwise unused in this collection.
 Toggle it on a game's collection entry on boardgamegeek.com to mark it,
 then re-export.
+
+Also regenerates public/index.html (via generate.py) once games.json is
+written, so a single run of this script is enough to update the site.
 """
 import csv
 import json
 import sys
 from pathlib import Path
+
+import generate
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "collection.csv"
@@ -61,6 +66,8 @@ def main():
     games.sort(key=lambda g: g["name"])
     DEST.write_text(json.dumps(games, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(games)} games to {DEST}")
+
+    generate.main()
 
 
 if __name__ == "__main__":

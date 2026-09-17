@@ -26,10 +26,12 @@ they're hand-maintained by BGG objectid in `scripts/generate.py`
    (see the URL in [scripts/extract_data.py](scripts/extract_data.py) — this
    file is gitignored since it contains pricing and location fields).
 2. Run `python3 scripts/extract_data.py` to produce `data/games.json`
-   (committed — contains only name/rating/complexity/player-count fields).
-3. Run `python3 scripts/generate.py` to rebuild `public/index.html` from
-   `data/games.json` and `scripts/template.html`.
-4. Commit and push to `main`.
+   (committed — contains only name/rating/complexity/player-count fields)
+   and rebuild `public/index.html` from it (it calls `generate.py` itself).
+3. Commit and push to `main`.
+
+Changing only `scripts/generate.py` or `scripts/template.html` (without a
+new CSV export)? Run `python3 scripts/generate.py` directly instead.
 
 ## Automatic S3 Deployment
 
