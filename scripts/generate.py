@@ -26,6 +26,22 @@ OUT = ROOT / "public" / "index.html"
 COMPLEXITY_DIVISOR = 2.5
 RATING_FLOOR = 5
 
+# BGG objectids for games with these traits. Not derivable from games.json,
+# so hand-maintained here.
+COOPERATIVE_GAME_OBJECTIDS = {
+    30549, # Pandemic
+    43443, # Castle Panic
+    136063, # Forbidden Desert
+    65244 # Forbidden Island
+}
+
+TWO_TEAM_GAME_OBJECTIDS = {
+    330592, # Phantom Ink
+    178900, # Codenames
+    198773, # Codenames Pictures
+    225694 # Decrypto
+}
+
 SHELVES = [
     (1, "1", "Player"), (2, "2", "Players"), (3, "3", "Players"),
     (4, "4", "Players"), (5, "5", "Players"), (6, "6", "Players"),
@@ -101,6 +117,8 @@ def build_shelf(games, count):
             "weight_pct": weight_pct,
             "rating_pct": rating_pct,
             "easy_to_learn": g.get("easyToLearn", False),
+            "cooperative": g["objectid"] in COOPERATIVE_GAME_OBJECTIDS,
+            "two_teams": g["objectid"] in TWO_TEAM_GAME_OBJECTIDS,
         })
 
     rows.sort(key=lambda r: r["rating_pct"], reverse=True)
@@ -119,9 +137,15 @@ def render_row(row, alt):
     cls = "row alt" if alt else "row"
     width = min(row["weight_pct"], 100)
     color = complexity_color(row["weight_pct"])
-    pick_badge = ' <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span>' if row["easy_to_learn"] else ""
+    badges = ""
+    if row["easy_to_learn"]:
+        badges += ' <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span>'
+    if row["cooperative"]:
+        badges += ' <span class="coop" title="Everyone plays on the same side">Cooperative</span>'
+    if row["two_teams"]:
+        badges += ' <span class="teams" title="Split into two teams">2 Teams</span>'
     return f'''<div class="{cls}">
-  <div class="name">{esc(row["name"])}{pick_badge}</div>
+  <div class="name">{esc(row["name"])}{badges}</div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:{width}%; background:{color};"></div></div>
     <span class="cpct">{row["weight_pct"]}%</span>

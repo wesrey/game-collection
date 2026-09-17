@@ -17,6 +17,8 @@
     --rule-strong: #cfd0da;
     --stripe: #fafafc;
     --cobalt: #1f3fe0;
+    --coop: #1f8a4c;
+    --teams: #b5601a;
     --track: #eef0f6;
   }
 
@@ -61,6 +63,41 @@
     color: var(--ink-dim);
     max-width: 500px;
     margin: 0 auto;
+  }
+
+  .legend-heading {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    color: var(--ink-dim);
+    margin: 2.4rem 0 0.8rem;
+  }
+
+  .legend {
+    max-width: 620px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    color: var(--ink-dim);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .legend .pick,
+  .legend .coop,
+  .legend .teams {
+    width: 6.6rem;
+    text-align: center;
+    flex-shrink: 0;
   }
 
   nav.jump {
@@ -181,19 +218,40 @@
     text-overflow: ellipsis;
   }
 
-  .name .pick {
+  .pick,
+  .coop,
+  .teams {
+    display: inline-block;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 600;
     font-size: 0.62rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--cobalt);
-    border: 1px solid var(--cobalt);
     border-radius: 3px;
     padding: 0.12rem 0.4rem;
     vertical-align: middle;
-    margin-left: 0.3rem;
     white-space: nowrap;
+  }
+
+  .name .pick,
+  .name .coop,
+  .name .teams {
+    margin-left: 0.3rem;
+  }
+
+  .pick {
+    color: var(--cobalt);
+    border: 1px solid var(--cobalt);
+  }
+
+  .coop {
+    color: var(--coop);
+    border: 1px solid var(--coop);
+  }
+
+  .teams {
+    color: var(--teams);
+    border: 1px solid var(--teams);
   }
 
   .complexity {
@@ -289,6 +347,12 @@
   <h1 class="herotitle">The Shelf</h1>
   <div class="eyebrow">From My Personal Board Game Collection</div>
   <p class="lede">The best games to play at each player number. One shelf per player count, best-rated first. Rating and Complexity shown is relative to the other games at that same count.</p>
+  <div class="legend-heading">Games That Are Easier to Get Into</div>
+  <div class="legend">
+    <span class="legend-item"><span class="pick">Easy to Learn</span> Simple rules, quick to teach</span>
+    <span class="legend-item"><span class="coop">Cooperative</span> Everyone plays on the same side "against" the game, win or lose together</span>
+    <span class="legend-item"><span class="teams">2 Teams</span> Split up, but you've got teammates to help you</span>
+  </div>
 </header>
 
 <nav class="jump">
@@ -419,7 +483,7 @@
   <div class="rating" style="color:#4c8a1a;">72%</div>
 </div>
 <div class="row alt">
-  <div class="name">Toy Battle</div>
+  <div class="name">Toy Battle <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
     <span class="cpct">59%</span>
@@ -427,7 +491,7 @@
   <div class="rating" style="color:#518b1a;">70%</div>
 </div>
 <div class="row">
-  <div class="name">Santorini</div>
+  <div class="name">Santorini <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:69%; background:#5870e8;"></div></div>
     <span class="cpct">69%</span>
@@ -574,7 +638,7 @@
   <div class="rating" style="color:#698e1b;">61%</div>
 </div>
 <div class="row alt">
-  <div class="name">Splendor</div>
+  <div class="name">Splendor <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:71%; background:#556de8;"></div></div>
     <span class="cpct">71%</span>
@@ -606,7 +670,7 @@
   <div class="rating" style="color:#85911c;">51%</div>
 </div>
 <div class="row alt">
-  <div class="name">Downforce</div>
+  <div class="name">Downforce <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:69%; background:#5870e8;"></div></div>
     <span class="cpct">69%</span>
@@ -638,7 +702,7 @@
   <div class="rating" style="color:#91931c;">47%</div>
 </div>
 <div class="row alt">
-  <div class="name">Can&#x27;t Stop</div>
+  <div class="name">Can&#x27;t Stop <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:46%; background:#8395ee;"></div></div>
     <span class="cpct">46%</span>
@@ -745,7 +809,7 @@
   <div class="rating" style="color:#4c8a1a;">72%</div>
 </div>
 <div class="row">
-  <div class="name">Decrypto</div>
+  <div class="name">Decrypto <span class="teams" title="Split into two teams">2 Teams</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:73%; background:#516ae7;"></div></div>
     <span class="cpct">73%</span>
@@ -769,7 +833,7 @@
   <div class="rating" style="color:#518b1a;">70%</div>
 </div>
 <div class="row alt">
-  <div class="name">Pandemic</div>
+  <div class="name">Pandemic <span class="coop" title="Everyone plays on the same side">Cooperative</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:96%; background:#2645e1;"></div></div>
     <span class="cpct">96%</span>
@@ -817,7 +881,7 @@
   <div class="rating" style="color:#668e1b;">62%</div>
 </div>
 <div class="row alt">
-  <div class="name">Sushi Go Party!</div>
+  <div class="name">Sushi Go Party! <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:53%; background:#768aec;"></div></div>
     <span class="cpct">53%</span>
@@ -841,7 +905,7 @@
   <div class="rating" style="color:#748f1b;">57%</div>
 </div>
 <div class="row">
-  <div class="name">Love Letter</div>
+  <div class="name">Love Letter <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:47%; background:#8193ee;"></div></div>
     <span class="cpct">47%</span>
@@ -881,7 +945,7 @@
   <div class="rating" style="color:#7f911c;">53%</div>
 </div>
 <div class="row alt">
-  <div class="name">King of Tokyo</div>
+  <div class="name">King of Tokyo <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
     <span class="cpct">59%</span>
@@ -921,7 +985,7 @@
   <div class="rating" style="color:#82911c;">52%</div>
 </div>
 <div class="row">
-  <div class="name">No Thanks!</div>
+  <div class="name">No Thanks! <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
     <span class="cpct">45%</span>
@@ -945,7 +1009,7 @@
   <div class="rating" style="color:#88921c;">50%</div>
 </div>
 <div class="row alt">
-  <div class="name">Forbidden Desert</div>
+  <div class="name">Forbidden Desert <span class="coop" title="Everyone plays on the same side">Cooperative</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:82%; background:#405ce5;"></div></div>
     <span class="cpct">82%</span>
@@ -1025,7 +1089,7 @@
   <div class="rating" style="color:#948a1c;">42%</div>
 </div>
 <div class="row alt">
-  <div class="name">Forbidden Island</div>
+  <div class="name">Forbidden Island <span class="coop" title="Everyone plays on the same side">Cooperative</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:70%; background:#566fe8;"></div></div>
     <span class="cpct">70%</span>
@@ -1057,7 +1121,7 @@
   <div class="rating" style="color:#967e1d;">37%</div>
 </div>
 <div class="row alt">
-  <div class="name">Phantom Ink</div>
+  <div class="name">Phantom Ink <span class="teams" title="Split into two teams">2 Teams</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:46%; background:#8395ee;"></div></div>
     <span class="cpct">46%</span>
@@ -1081,7 +1145,7 @@
   <div class="rating" style="color:#967e1d;">37%</div>
 </div>
 <div class="row">
-  <div class="name">Castle Panic</div>
+  <div class="name">Castle Panic <span class="coop" title="Everyone plays on the same side">Cooperative</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:66%; background:#5e75e9;"></div></div>
     <span class="cpct">66%</span>
@@ -1097,7 +1161,7 @@
   <div class="rating" style="color:#97791d;">35%</div>
 </div>
 <div class="row">
-  <div class="name">Things in Rings</div>
+  <div class="name">Things in Rings <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:54%; background:#7488ec;"></div></div>
     <span class="cpct">54%</span>
@@ -1169,7 +1233,7 @@
   <div class="rating" style="color:#9b5c1e;">23%</div>
 </div>
 <div class="row alt">
-  <div class="name">Word on the Street</div>
+  <div class="name">Word on the Street <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:54%; background:#7488ec;"></div></div>
     <span class="cpct">54%</span>
@@ -1284,7 +1348,7 @@
   <div class="rating" style="color:#3a881a;">79%</div>
 </div>
 <div class="row alt">
-  <div class="name">Sushi Go Party!</div>
+  <div class="name">Sushi Go Party! <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:53%; background:#768aec;"></div></div>
     <span class="cpct">53%</span>
@@ -1292,7 +1356,7 @@
   <div class="rating" style="color:#44891a;">75%</div>
 </div>
 <div class="row">
-  <div class="name">For Sale</div>
+  <div class="name">For Sale <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:50%; background:#7c8fed;"></div></div>
     <span class="cpct">50%</span>
@@ -1308,7 +1372,7 @@
   <div class="rating" style="color:#4e8a1a;">71%</div>
 </div>
 <div class="row">
-  <div class="name">King of Tokyo</div>
+  <div class="name">King of Tokyo <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:59%; background:#6b80eb;"></div></div>
     <span class="cpct">59%</span>
@@ -1324,7 +1388,7 @@
   <div class="rating" style="color:#5b8c1b;">66%</div>
 </div>
 <div class="row">
-  <div class="name">Skull</div>
+  <div class="name">Skull <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
     <span class="cpct">45%</span>
@@ -1356,7 +1420,7 @@
   <div class="rating" style="color:#618d1b;">64%</div>
 </div>
 <div class="row">
-  <div class="name">No Thanks!</div>
+  <div class="name">No Thanks! <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
     <span class="cpct">45%</span>
@@ -1543,7 +1607,7 @@
   <div class="rating" style="color:#18812a;">100%</div>
 </div>
 <div class="row alt">
-  <div class="name">Decrypto</div>
+  <div class="name">Decrypto <span class="teams" title="Split into two teams">2 Teams</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:73%; background:#516ae7;"></div></div>
     <span class="cpct">73%</span>
@@ -1551,7 +1615,7 @@
   <div class="rating" style="color:#238519;">88%</div>
 </div>
 <div class="row">
-  <div class="name">Codenames <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
+  <div class="name">Codenames <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span> <span class="teams" title="Split into two teams">2 Teams</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:50%; background:#7c8fed;"></div></div>
     <span class="cpct">50%</span>
@@ -1583,7 +1647,7 @@
   <div class="rating" style="color:#498a1a;">73%</div>
 </div>
 <div class="row">
-  <div class="name">Skull</div>
+  <div class="name">Skull <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:45%; background:#8597ee;"></div></div>
     <span class="cpct">45%</span>
@@ -1591,7 +1655,7 @@
   <div class="rating" style="color:#618d1b;">64%</div>
 </div>
 <div class="row alt">
-  <div class="name">Codenames: Pictures</div>
+  <div class="name">Codenames: Pictures <span class="teams" title="Split into two teams">2 Teams</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:49%; background:#7e90ed;"></div></div>
     <span class="cpct">49%</span>
@@ -1599,7 +1663,7 @@
   <div class="rating" style="color:#638d1b;">63%</div>
 </div>
 <div class="row">
-  <div class="name">Downforce</div>
+  <div class="name">Downforce <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:69%; background:#5870e8;"></div></div>
     <span class="cpct">69%</span>
@@ -1647,7 +1711,7 @@
   <div class="rating" style="color:#77901b;">56%</div>
 </div>
 <div class="row">
-  <div class="name">BANG! The Dice Game</div>
+  <div class="name">BANG! The Dice Game <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:51%; background:#7a8ded;"></div></div>
     <span class="cpct">51%</span>
@@ -1687,7 +1751,7 @@
   <div class="rating" style="color:#948a1c;">42%</div>
 </div>
 <div class="row alt">
-  <div class="name">Phantom Ink</div>
+  <div class="name">Phantom Ink <span class="teams" title="Split into two teams">2 Teams</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:46%; background:#8395ee;"></div></div>
     <span class="cpct">46%</span>
@@ -1719,7 +1783,7 @@
   <div class="rating" style="color:#9a661d;">27%</div>
 </div>
 <div class="row alt">
-  <div class="name">Word on the Street</div>
+  <div class="name">Word on the Street <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:54%; background:#7488ec;"></div></div>
     <span class="cpct">54%</span>
@@ -1810,7 +1874,7 @@
   <div class="rating" style="color:#748f1b;">57%</div>
 </div>
 <div class="row alt">
-  <div class="name">BANG! The Dice Game</div>
+  <div class="name">BANG! The Dice Game <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:51%; background:#7a8ded;"></div></div>
     <span class="cpct">51%</span>
@@ -1850,7 +1914,7 @@
   <div class="rating" style="color:#9f3a1e;">10%</div>
 </div>
 <div class="row">
-  <div class="name">Herd Mentality</div>
+  <div class="name">Herd Mentality <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:40%; background:#8e9ff0;"></div></div>
     <span class="cpct">40%</span>
@@ -1869,7 +1933,7 @@
 </div>
   <div class="rows">
     <div class="row">
-  <div class="name">Codenames <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
+  <div class="name">Codenames <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span> <span class="teams" title="Split into two teams">2 Teams</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:50%; background:#7c8fed;"></div></div>
     <span class="cpct">50%</span>
@@ -1941,7 +2005,7 @@
   <div class="rating" style="color:#9b5f1d;">24%</div>
 </div>
 <div class="row alt">
-  <div class="name">Herd Mentality</div>
+  <div class="name">Herd Mentality <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span></div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:40%; background:#8e9ff0;"></div></div>
     <span class="cpct">40%</span>

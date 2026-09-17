@@ -110,7 +110,7 @@
       6,
       7
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Battle Line",
@@ -214,7 +214,7 @@
     "bestPlayers": [
       3
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Carcassonne",
@@ -474,7 +474,7 @@
       3,
       6
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "El Grande",
@@ -494,7 +494,7 @@
     "bestPlayers": [
       5
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Forbidden Desert",
@@ -569,7 +569,7 @@
       7,
       8
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "High Society",
@@ -652,7 +652,7 @@
       4,
       5
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Kingsburg",
@@ -725,7 +725,7 @@
     "bestPlayers": [
       4
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Magic Maze",
@@ -790,7 +790,7 @@
       4,
       5
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Notre Dame",
@@ -1040,7 +1040,7 @@
     "bestPlayers": [
       2
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Shadows over Camelot",
@@ -1073,7 +1073,7 @@
       5,
       6
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Small World",
@@ -1093,7 +1093,7 @@
     "bestPlayers": [
       3
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Spring Meadow",
@@ -1178,7 +1178,7 @@
       4,
       5
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Sushi Roll",
@@ -1262,7 +1262,7 @@
     "bestPlayers": [
       4
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Ticket to Ride",
@@ -1312,7 +1312,7 @@
     "bestPlayers": [
       2
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "TransAmerica",
@@ -1424,7 +1424,7 @@
       4,
       6
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "World Championship Russian Roulette",

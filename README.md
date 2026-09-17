@@ -12,6 +12,14 @@ otherwise unused in this collection, so it's repurposed as the signal —
 it's picked up automatically the next time you re-export and re-run
 `extract_data.py`.
 
+## Flagging a game as Cooperative or 2 Teams
+
+Unlike "Easy to Learn", these two badges have no BGG field to repurpose, so
+they're hand-maintained by BGG objectid in `scripts/generate.py`
+(`COOPERATIVE_GAME_OBJECTIDS` / `TWO_TEAM_GAME_OBJECTIDS`). Add a game's objectid
+(the `objectid` field in `data/games.json`) to the relevant set and re-run
+`generate.py`.
+
 ## Updating the collection
 
 1. Re-export your BGG collection as CSV and save it to `data/collection.csv`
