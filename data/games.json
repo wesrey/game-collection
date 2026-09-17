@@ -92,16 +92,6 @@
     "easyToLearn": false
   },
   {
-    "name": "BANG!",
-    "objectid": 3955,
-    "avgweight": 1.6318,
-    "baverage": 6.32024,
-    "bestPlayers": [
-      7
-    ],
-    "easyToLearn": false
-  },
-  {
     "name": "BANG! The Dice Game",
     "objectid": 143741,
     "avgweight": 1.277,
@@ -434,18 +424,6 @@
     "easyToLearn": false
   },
   {
-    "name": "Diamant",
-    "objectid": 15512,
-    "avgweight": 1.1133,
-    "baverage": 6.71059,
-    "bestPlayers": [
-      6,
-      7,
-      8
-    ],
-    "easyToLearn": false
-  },
-  {
     "name": "Dice Forge",
     "objectid": 194594,
     "avgweight": 1.9727,
@@ -613,6 +591,16 @@
     "easyToLearn": false
   },
   {
+    "name": "Jungo",
+    "objectid": 424816,
+    "avgweight": 1.1373,
+    "baverage": 6.20433,
+    "bestPlayers": [
+      4
+    ],
+    "easyToLearn": true
+  },
+  {
     "name": "Just One",
     "objectid": 254640,
     "avgweight": 1.0326,
@@ -734,17 +722,6 @@
     "baverage": 6.77303,
     "bestPlayers": [
       4
-    ],
-    "easyToLearn": false
-  },
-  {
-    "name": "Modern Art",
-    "objectid": 118,
-    "avgweight": 2.2756,
-    "baverage": 7.33167,
-    "bestPlayers": [
-      4,
-      5
     ],
     "easyToLearn": false
   },
@@ -1191,18 +1168,6 @@
     "easyToLearn": false
   },
   {
-    "name": "Take 5 & Take A Number",
-    "objectid": 246912,
-    "avgweight": 1.381,
-    "baverage": 6.2206,
-    "bestPlayers": [
-      5,
-      6,
-      7
-    ],
-    "easyToLearn": false
-  },
-  {
     "name": "Targi",
     "objectid": 118048,
     "avgweight": 2.3423,
@@ -1335,7 +1300,7 @@
       4,
       6
     ],
-    "easyToLearn": false
+    "easyToLearn": true
   },
   {
     "name": "Two Rooms and a Boom",
@@ -1402,16 +1367,6 @@
     "baverage": 6.80304,
     "bestPlayers": [
       2
-    ],
-    "easyToLearn": false
-  },
-  {
-    "name": "Witness",
-    "objectid": 164265,
-    "avgweight": 1.5417,
-    "baverage": 6.43574,
-    "bestPlayers": [
-      4
     ],
     "easyToLearn": false
   },
