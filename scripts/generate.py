@@ -9,8 +9,10 @@ Grouping and math were reverse-engineered from the original hand-built page:
     1-5 weight scale, so this is "how far from medium complexity", not a
     per-shelf ranking - it's the same number on every shelf a game is on).
   - Rel. Rating% = min-max normalization of BGG's Bayesian average rating
-    (baverage) within that specific shelf's group of games (0% = worst rated
-    game at that count, 100% = best rated game at that count).
+    (baverage) within that specific shelf's group of games, rescaled to a
+    5%-100% range (5% = worst rated game at that count, 100% = best rated
+    game at that count). The 5% floor is cosmetic, so the worst-rated game
+    on a shelf doesn't render as a stark 0%.
 """
 import colorsys
 import html
@@ -22,6 +24,7 @@ DATA = ROOT / "data" / "games.json"
 OUT = ROOT / "public" / "index.html"
 
 COMPLEXITY_DIVISOR = 2.5
+RATING_FLOOR = 5
 
 SHELVES = [
     (1, "1", "Player"), (2, "2", "Players"), (3, "3", "Players"),
@@ -89,7 +92,10 @@ def build_shelf(games, count):
     rows = []
     for g in members:
         weight_pct = round(g["avgweight"] / COMPLEXITY_DIVISOR * 100)
-        rating_pct = round((g["baverage"] - lo) / spread * 100) if spread else 0
+        rating_pct = (
+            round(RATING_FLOOR + (g["baverage"] - lo) / spread * (100 - RATING_FLOOR))
+            if spread else RATING_FLOOR
+        )
         rows.append({
             "name": g["name"],
             "weight_pct": weight_pct,
