@@ -6,7 +6,13 @@ Input: data/collection.csv (gitignored - re-export it from
   whenever the collection changes)
 
 Output: data/games.json (committed - contains only name/rating/complexity/
-  player-count fields, never pricing or location data from the export)
+  player-count/easy-to-learn fields, never pricing or location data from the
+  export)
+
+Easy to Learn flag: BGG's "preordered" checkbox is repurposed as an
+introductory-friendly flag, since it's otherwise unused in this collection.
+Toggle it on a game's collection entry on boardgamegeek.com to mark it,
+then re-export.
 """
 import csv
 import json
@@ -49,6 +55,7 @@ def main():
                 "avgweight": avgweight,
                 "baverage": baverage,
                 "bestPlayers": best_players,
+                "easyToLearn": row.get("preordered") == "1",
             })
 
     games.sort(key=lambda g: g["name"])

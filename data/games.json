@@ -3,20 +3,22 @@
     "name": "7 Wonders",
     "objectid": 68448,
     "avgweight": 2.315,
-    "baverage": 7.54575,
+    "baverage": 7.54571,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Acquire",
     "objectid": 5,
     "avgweight": 2.4866,
-    "baverage": 7.12802,
+    "baverage": 7.12806,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Aerion",
@@ -25,99 +27,110 @@
     "baverage": 6.30295,
     "bestPlayers": [
       1
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Air, Land, & Sea",
     "objectid": 247367,
     "avgweight": 1.7363,
-    "baverage": 7.06945,
+    "baverage": 7.06934,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Alhambra",
     "objectid": 6249,
     "avgweight": 2.0965,
-    "baverage": 6.90594,
+    "baverage": 6.90588,
     "bestPlayers": [
       3
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Anomia",
     "objectid": 67877,
     "avgweight": 1.0462,
-    "baverage": 6.29747,
+    "baverage": 6.29731,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Arboretum",
     "objectid": 140934,
     "avgweight": 2.1133,
-    "baverage": 7.05685,
+    "baverage": 7.05688,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Azul",
     "objectid": 230802,
     "avgweight": 1.7729,
-    "baverage": 7.6021,
+    "baverage": 7.60204,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": true
   },
   {
     "name": "Azul: Summer Pavilion",
     "objectid": 287954,
     "avgweight": 2.0771,
-    "baverage": 7.28963,
+    "baverage": 7.28962,
     "bestPlayers": [
       2,
       3
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "BANG!",
     "objectid": 3955,
     "avgweight": 1.6318,
-    "baverage": 6.32026,
+    "baverage": 6.32024,
     "bestPlayers": [
       7
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "BANG! The Dice Game",
     "objectid": 143741,
     "avgweight": 1.277,
-    "baverage": 6.71558,
+    "baverage": 6.71559,
     "bestPlayers": [
       6,
       7
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Battle Line",
     "objectid": 760,
     "avgweight": 1.8876,
-    "baverage": 7.16674,
+    "baverage": 7.1668,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Battlestar Galactica: The Board Game",
     "objectid": 37111,
     "avgweight": 3.2513,
-    "baverage": 7.52541,
+    "baverage": 7.5253,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Block Party",
@@ -126,16 +139,18 @@
     "baverage": 5.63927,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": true
   },
   {
     "name": "Blokus",
     "objectid": 2453,
     "avgweight": 1.7303,
-    "baverage": 6.70653,
+    "baverage": 6.70661,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Blue Moon City",
@@ -145,74 +160,82 @@
     "bestPlayers": [
       3,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Bohnanza",
     "objectid": 11,
     "avgweight": 1.6657,
-    "baverage": 6.96398,
+    "baverage": 6.96399,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Brass: Birmingham",
     "objectid": 224517,
-    "avgweight": 3.8604,
-    "baverage": 8.39053,
+    "avgweight": 3.8608,
+    "baverage": 8.39046,
     "bestPlayers": [
       3,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Burgle Bros.",
     "objectid": 172081,
     "avgweight": 2.3167,
-    "baverage": 7.06828,
+    "baverage": 7.0682,
     "bestPlayers": [
       3
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Camel Up",
     "objectid": 153938,
     "avgweight": 1.5025,
-    "baverage": 6.87402,
+    "baverage": 6.87406,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Can't Stop",
     "objectid": 41,
     "avgweight": 1.1421,
-    "baverage": 6.79461,
+    "baverage": 6.79429,
     "bestPlayers": [
       3
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Carcassonne",
     "objectid": 822,
     "avgweight": 1.8838,
-    "baverage": 7.29902,
+    "baverage": 7.29898,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Cascadia",
     "objectid": 295947,
     "avgweight": 1.8433,
-    "baverage": 7.73026,
+    "baverage": 7.73021,
     "bestPlayers": [
       2,
       3
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Castle Panic",
@@ -221,25 +244,28 @@
     "baverage": 6.46314,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Cat in the Box: Deluxe Edition",
     "objectid": 345972,
     "avgweight": 2.0455,
-    "baverage": 7.1144,
+    "baverage": 7.11431,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Catan",
     "objectid": 13,
     "avgweight": 2.2803,
-    "baverage": 6.90152,
+    "baverage": 6.90147,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Chicken Cha Cha Cha",
@@ -248,35 +274,39 @@
     "baverage": 6.09343,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Chinatown",
     "objectid": 47,
     "avgweight": 2.2264,
-    "baverage": 7.1075,
+    "baverage": 7.10763,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Citadels",
     "objectid": 478,
     "avgweight": 2.0466,
-    "baverage": 6.92883,
+    "baverage": 6.92875,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Clue",
     "objectid": 1294,
     "avgweight": 1.6406,
-    "baverage": 5.57423,
+    "baverage": 5.57427,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Clue: The Great Museum Caper",
@@ -285,35 +315,39 @@
     "baverage": 6.01664,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Cockroach Poker",
     "objectid": 11971,
     "avgweight": 1.0961,
-    "baverage": 6.60204,
+    "baverage": 6.6021,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": true
   },
   {
     "name": "Codenames",
     "objectid": 178900,
     "avgweight": 1.2524,
-    "baverage": 7.42676,
+    "baverage": 7.42674,
     "bestPlayers": [
       6,
       8
-    ]
+    ],
+    "easyToLearn": true
   },
   {
     "name": "Codenames: Pictures",
     "objectid": 198773,
     "avgweight": 1.2345,
-    "baverage": 6.99533,
+    "baverage": 6.99543,
     "bestPlayers": [
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Coloretto",
@@ -322,85 +356,94 @@
     "baverage": 6.82024,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Colt Express",
     "objectid": 158899,
     "avgweight": 1.8341,
-    "baverage": 6.95294,
+    "baverage": 6.9529,
     "bestPlayers": [
       5,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Concordia",
     "objectid": 124361,
     "avgweight": 2.9849,
-    "baverage": 7.92286,
+    "baverage": 7.92278,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Cosmic Encounter",
     "objectid": 39463,
     "avgweight": 2.5831,
-    "baverage": 7.31095,
+    "baverage": 7.31093,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Dead of Winter: A Crossroads Game",
     "objectid": 150376,
     "avgweight": 3.0131,
-    "baverage": 7.26777,
+    "baverage": 7.26765,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Deception: Murder in Hong Kong",
     "objectid": 156129,
     "avgweight": 1.5892,
-    "baverage": 7.21024,
+    "baverage": 7.21016,
     "bestPlayers": [
       6,
       7,
       8
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Decrypto",
     "objectid": 225694,
-    "avgweight": 1.8247,
-    "baverage": 7.54641,
+    "avgweight": 1.825,
+    "baverage": 7.54623,
     "bestPlayers": [
       4,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Deep Sea Adventure",
     "objectid": 169654,
     "avgweight": 1.1857,
-    "baverage": 6.68312,
+    "baverage": 6.68306,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Diamant",
     "objectid": 15512,
     "avgweight": 1.1133,
-    "baverage": 6.71055,
+    "baverage": 6.71059,
     "bestPlayers": [
       6,
       7,
       8
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Dice Forge",
@@ -409,82 +452,91 @@
     "baverage": 7.00444,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Dominion",
     "objectid": 36218,
     "avgweight": 2.344,
-    "baverage": 7.473,
+    "baverage": 7.47297,
     "bestPlayers": [
       3
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Downforce",
     "objectid": 215311,
     "avgweight": 1.7317,
-    "baverage": 6.98612,
+    "baverage": 6.98609,
     "bestPlayers": [
       3,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "El Grande",
     "objectid": 93,
     "avgweight": 2.9308,
-    "baverage": 7.5939,
+    "baverage": 7.59396,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "For Sale",
     "objectid": 172,
     "avgweight": 1.2496,
-    "baverage": 7.14168,
+    "baverage": 7.14165,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Forbidden Desert",
     "objectid": 136063,
     "avgweight": 2.04,
-    "baverage": 6.90655,
+    "baverage": 6.90667,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Forbidden Island",
     "objectid": 65244,
     "avgweight": 1.7401,
-    "baverage": 6.63751,
+    "baverage": 6.63753,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Get Bit!",
     "objectid": 30539,
     "avgweight": 1.1171,
-    "baverage": 5.95662,
+    "baverage": 5.95676,
     "bestPlayers": [
       5,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Good Face Bad Face",
     "objectid": 379297,
     "avgweight": 1.0909,
-    "baverage": 5.61167,
+    "baverage": 5.6122,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Gravwell: Escape from the 9th Dimension",
@@ -494,46 +546,51 @@
     "bestPlayers": [
       3,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Heat: Pedal to the Metal",
     "objectid": 366013,
     "avgweight": 2.2013,
-    "baverage": 7.79504,
+    "baverage": 7.79503,
     "bestPlayers": [
       5,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Herd Mentality",
     "objectid": 311322,
     "avgweight": 1.0,
-    "baverage": 6.14723,
+    "baverage": 6.14768,
     "bestPlayers": [
       7,
       8
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "High Society",
     "objectid": 220,
     "avgweight": 1.4818,
-    "baverage": 6.97649,
+    "baverage": 6.97652,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Hive",
     "objectid": 2655,
     "avgweight": 2.3119,
-    "baverage": 7.16555,
+    "baverage": 7.16544,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "ICECOOL",
@@ -542,26 +599,29 @@
     "baverage": 6.54745,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Jaipur",
     "objectid": 54043,
     "avgweight": 1.4633,
-    "baverage": 7.36097,
+    "baverage": 7.36088,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Just One",
     "objectid": 254640,
     "avgweight": 1.0326,
-    "baverage": 7.4357,
+    "baverage": 7.43577,
     "bestPlayers": [
       6,
       7
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "KLASK",
@@ -570,7 +630,8 @@
     "baverage": 7.26031,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Kill Doctor Lucky",
@@ -579,56 +640,62 @@
     "baverage": 5.93955,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "King of Tokyo",
     "objectid": 70323,
     "avgweight": 1.4843,
-    "baverage": 7.00489,
+    "baverage": 7.0049,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Kingsburg",
     "objectid": 27162,
     "avgweight": 2.4209,
-    "baverage": 6.95796,
+    "baverage": 6.95789,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "L.L.A.M.A.",
     "objectid": 266083,
     "avgweight": 1.0519,
-    "baverage": 6.27491,
+    "baverage": 6.27487,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Letter Jam",
     "objectid": 275467,
     "avgweight": 1.9717,
-    "baverage": 6.65029,
+    "baverage": 6.65034,
     "bestPlayers": [
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Libertalia: Winds of Galecrest",
     "objectid": 356033,
     "avgweight": 2.1852,
-    "baverage": 6.98892,
+    "baverage": 6.98897,
     "bestPlayers": [
       4,
       5,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Lords of Vegas",
@@ -637,25 +704,28 @@
     "baverage": 6.91843,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Lost Cities",
     "objectid": 50,
     "avgweight": 1.4752,
-    "baverage": 7.15399,
+    "baverage": 7.15396,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Love Letter",
     "objectid": 129622,
     "avgweight": 1.1843,
-    "baverage": 7.12181,
+    "baverage": 7.12185,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Magic Maze",
@@ -664,37 +734,41 @@
     "baverage": 6.77303,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Modern Art",
     "objectid": 118,
     "avgweight": 2.2756,
-    "baverage": 7.33157,
+    "baverage": 7.33167,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Monikers",
     "objectid": 156546,
     "avgweight": 1.09,
-    "baverage": 7.20458,
+    "baverage": 7.20476,
     "bestPlayers": [
       6,
       8,
       10
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Monkey Palace",
     "objectid": 412911,
     "avgweight": 1.9853,
-    "baverage": 6.30467,
+    "baverage": 6.30448,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "NMBR 9",
@@ -704,17 +778,19 @@
     "bestPlayers": [
       3,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "No Thanks!",
     "objectid": 12942,
     "avgweight": 1.1291,
-    "baverage": 6.95419,
+    "baverage": 6.95413,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Notre Dame",
@@ -724,36 +800,40 @@
     "bestPlayers": [
       3,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "One Night Ultimate Werewolf",
     "objectid": 147949,
     "avgweight": 1.381,
-    "baverage": 6.85173,
+    "baverage": 6.85182,
     "bestPlayers": [
       6,
       7,
       8
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Onirim (Second Edition)",
     "objectid": 156336,
     "avgweight": 1.6111,
-    "baverage": 6.72857,
+    "baverage": 6.72882,
     "bestPlayers": [
       1
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Onitama",
     "objectid": 160477,
     "avgweight": 1.6553,
-    "baverage": 7.13453,
+    "baverage": 7.13452,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "PUSH",
@@ -762,7 +842,8 @@
     "baverage": 6.23695,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Pairs",
@@ -772,26 +853,29 @@
     "bestPlayers": [
       5,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Pandemic",
     "objectid": 30549,
     "avgweight": 2.3934,
-    "baverage": 7.40041,
+    "baverage": 7.4004,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Pandemic: The Cure",
     "objectid": 150658,
     "avgweight": 2.0673,
-    "baverage": 6.90098,
+    "baverage": 6.90091,
     "bestPlayers": [
       3,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Paperback Adventures",
@@ -800,16 +884,18 @@
     "baverage": 6.03069,
     "bestPlayers": [
       1
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Patchwork",
     "objectid": 163412,
     "avgweight": 1.5996,
-    "baverage": 7.46987,
+    "baverage": 7.46986,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Phantom Ink",
@@ -819,7 +905,8 @@
     "bestPlayers": [
       4,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Pick-a-Dog",
@@ -829,90 +916,100 @@
     "bestPlayers": [
       3,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Pirate's Cove",
     "objectid": 2987,
     "avgweight": 2.0063,
-    "baverage": 6.27419,
+    "baverage": 6.27422,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Point Salad",
     "objectid": 274960,
     "avgweight": 1.1528,
-    "baverage": 6.91014,
+    "baverage": 6.9101,
     "bestPlayers": [
       3
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Power Grid",
     "objectid": 2651,
     "avgweight": 3.2452,
-    "baverage": 7.67917,
+    "baverage": 7.67919,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Puerto Rico",
     "objectid": 3076,
     "avgweight": 3.2658,
-    "baverage": 7.74935,
+    "baverage": 7.74928,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Quacks",
     "objectid": 244521,
     "avgweight": 1.9431,
-    "baverage": 7.66447,
+    "baverage": 7.66444,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Quarto",
     "objectid": 681,
     "avgweight": 1.8635,
-    "baverage": 6.56549,
+    "baverage": 6.56558,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Qwinto",
     "objectid": 183006,
     "avgweight": 1.3077,
-    "baverage": 6.40846,
+    "baverage": 6.4084,
     "bestPlayers": [
       3,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Qwirkle",
     "objectid": 25669,
     "avgweight": 1.5763,
-    "baverage": 6.61123,
+    "baverage": 6.61119,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Race for the Galaxy",
     "objectid": 28143,
     "avgweight": 2.9938,
-    "baverage": 7.61442,
+    "baverage": 7.61445,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Saboteur",
@@ -922,73 +1019,81 @@
     "bestPlayers": [
       7,
       8
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Sagrada",
     "objectid": 199561,
     "avgweight": 1.9227,
-    "baverage": 7.32532,
+    "baverage": 7.32533,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Santorini",
     "objectid": 194655,
     "avgweight": 1.7175,
-    "baverage": 7.18739,
+    "baverage": 7.18741,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Shadows over Camelot",
     "objectid": 15062,
     "avgweight": 2.569,
-    "baverage": 6.92474,
+    "baverage": 6.92473,
     "bestPlayers": [
       5,
       6,
       7
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Sheriff of Nottingham",
     "objectid": 157969,
     "avgweight": 1.6581,
-    "baverage": 6.90247,
+    "baverage": 6.90258,
     "bestPlayers": [
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Skull",
     "objectid": 92415,
     "avgweight": 1.1175,
-    "baverage": 7.00791,
+    "baverage": 7.0078,
     "bestPlayers": [
       5,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Small World",
     "objectid": 40692,
     "avgweight": 2.3455,
-    "baverage": 7.08202,
+    "baverage": 7.08199,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Splendor",
     "objectid": 148228,
     "avgweight": 1.7747,
-    "baverage": 7.29247,
+    "baverage": 7.29251,
     "bestPlayers": [
       3
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Spring Meadow",
@@ -998,25 +1103,28 @@
     "bestPlayers": [
       2,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Star Realms",
     "objectid": 147020,
     "avgweight": 1.9111,
-    "baverage": 7.39669,
+    "baverage": 7.39675,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Star Wars: The Deckbuilding Game",
     "objectid": 374173,
     "avgweight": 2.0498,
-    "baverage": 7.3499,
+    "baverage": 7.35017,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Stella: Dixit Universe",
@@ -1026,55 +1134,61 @@
     "bestPlayers": [
       5,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Stockpile",
     "objectid": 161614,
     "avgweight": 2.1204,
-    "baverage": 6.94893,
+    "baverage": 6.94883,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Strike",
     "objectid": 123570,
     "avgweight": 1.0226,
-    "baverage": 6.52632,
+    "baverage": 6.52612,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Suburbia",
     "objectid": 123260,
     "avgweight": 2.7559,
-    "baverage": 7.27326,
+    "baverage": 7.27322,
     "bestPlayers": [
       3
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Sushi Go Party!",
     "objectid": 192291,
     "avgweight": 1.3276,
-    "baverage": 7.21529,
+    "baverage": 7.21518,
     "bestPlayers": [
       4,
       5
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Sushi Roll",
     "objectid": 271869,
     "avgweight": 1.2771,
-    "baverage": 6.4653,
+    "baverage": 6.46545,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Take 5 & Take A Number",
@@ -1085,25 +1199,28 @@
       5,
       6,
       7
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Targi",
     "objectid": 118048,
     "avgweight": 2.3423,
-    "baverage": 7.39858,
+    "baverage": 7.39868,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "The Fox in the Forest",
     "objectid": 221965,
     "avgweight": 1.617,
-    "baverage": 6.84911,
+    "baverage": 6.84916,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "The Pillars of the Earth",
@@ -1112,63 +1229,70 @@
     "baverage": 7.0273,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "The Quest for El Dorado",
     "objectid": 217372,
     "avgweight": 1.9421,
-    "baverage": 7.54158,
+    "baverage": 7.54161,
     "bestPlayers": [
       2,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "The Resistance: Avalon",
     "objectid": 128882,
     "avgweight": 1.7393,
-    "baverage": 7.29994,
+    "baverage": 7.29987,
     "bestPlayers": [
       7,
       8
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Things in Rings",
     "objectid": 408547,
     "avgweight": 1.3492,
-    "baverage": 6.47585,
+    "baverage": 6.47593,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Ticket to Ride",
     "objectid": 9209,
     "avgweight": 1.8187,
-    "baverage": 7.2592,
+    "baverage": 7.25918,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": true
   },
   {
     "name": "Ticket to Ride: Europe",
     "objectid": 14996,
     "avgweight": 1.9148,
-    "baverage": 7.39286,
+    "baverage": 7.39287,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Tigris & Euphrates",
     "objectid": 42,
     "avgweight": 3.4743,
-    "baverage": 7.50485,
+    "baverage": 7.50503,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Tokaido",
@@ -1177,16 +1301,18 @@
     "baverage": 6.73661,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Toy Battle",
     "objectid": 434654,
-    "avgweight": 1.4802,
-    "baverage": 7.23377,
+    "avgweight": 1.4831,
+    "baverage": 7.23405,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "TransAmerica",
@@ -1197,7 +1323,8 @@
       4,
       5,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Tsuro",
@@ -1207,13 +1334,14 @@
     "bestPlayers": [
       4,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Two Rooms and a Boom",
     "objectid": 134352,
     "avgweight": 1.4845,
-    "baverage": 6.54484,
+    "baverage": 6.54515,
     "bestPlayers": [
       14,
       16,
@@ -1221,7 +1349,8 @@
       18,
       20,
       22
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "WINK",
@@ -1230,27 +1359,30 @@
     "baverage": 5.74411,
     "bestPlayers": [
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Wavelength",
     "objectid": 262543,
     "avgweight": 1.1047,
-    "baverage": 6.97049,
+    "baverage": 6.97057,
     "bestPlayers": [
       6,
       8
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Welcome To...",
     "objectid": 233867,
     "avgweight": 1.8428,
-    "baverage": 7.34702,
+    "baverage": 7.34705,
     "bestPlayers": [
       3,
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Werewords Deluxe Edition",
@@ -1260,7 +1392,8 @@
     "bestPlayers": [
       6,
       8
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Whitehall Mystery",
@@ -1269,7 +1402,8 @@
     "baverage": 6.80304,
     "bestPlayers": [
       2
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Witness",
@@ -1278,17 +1412,19 @@
     "baverage": 6.43574,
     "bestPlayers": [
       4
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "Word on the Street",
     "objectid": 40990,
     "avgweight": 1.3391,
-    "baverage": 6.08179,
+    "baverage": 6.08181,
     "bestPlayers": [
       4,
       6
-    ]
+    ],
+    "easyToLearn": false
   },
   {
     "name": "World Championship Russian Roulette",
@@ -1299,6 +1435,7 @@
       4,
       5,
       6
-    ]
+    ],
+    "easyToLearn": false
   }
 ]

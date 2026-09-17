@@ -3,6 +3,15 @@
 A static "Shelf" page built from a BoardGameGeek collection export, grouping
 games by best player count with relative complexity and rating bars.
 
+## Flagging a game as Easy to Learn
+
+To mark a game as introductory-friendly with an "Easy to Learn" badge on
+the Shelf, check the **Preordered** checkbox on that game's entry in your
+BGG collection (Collection > click the game > Status). This flag is
+otherwise unused in this collection, so it's repurposed as the signal —
+it's picked up automatically the next time you re-export and re-run
+`extract_data.py`.
+
 ## Updating the collection
 
 1. Re-export your BGG collection as CSV and save it to `data/collection.csv`

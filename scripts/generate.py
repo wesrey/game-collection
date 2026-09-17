@@ -94,6 +94,7 @@ def build_shelf(games, count):
             "name": g["name"],
             "weight_pct": weight_pct,
             "rating_pct": rating_pct,
+            "easy_to_learn": g.get("easyToLearn", False),
         })
 
     rows.sort(key=lambda r: r["rating_pct"], reverse=True)
@@ -112,8 +113,9 @@ def render_row(row, alt):
     cls = "row alt" if alt else "row"
     width = min(row["weight_pct"], 100)
     color = complexity_color(row["weight_pct"])
+    pick_badge = ' <span class="pick" title="Simple rules, quick to teach">Easy to Learn</span>' if row["easy_to_learn"] else ""
     return f'''<div class="{cls}">
-  <div class="name">{esc(row["name"])}</div>
+  <div class="name">{esc(row["name"])}{pick_badge}</div>
   <div class="complexity">
     <div class="cbar"><div class="cfill" style="width:{width}%; background:{color};"></div></div>
     <span class="cpct">{row["weight_pct"]}%</span>
