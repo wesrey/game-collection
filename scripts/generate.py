@@ -44,9 +44,7 @@ TWO_TEAM_GAME_OBJECTIDS = {
     178900, # Codenames
     198773, # Codenames Pictures
     225694, # Decrypto
-    190082, # Whitehall Mystery
     40990, # Word on the Street
-    156546, # Monikers
     262543 # Wavelength
 }
 
