@@ -1,0 +1,436 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Why Did The Chicken...?</title>
+  <meta name="description" content="Why Did The Chicken...? Random Cardpair Generator">
+  <meta name="author" content="Wesley Reynolds <wesrey.com>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    #card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    #card-sentence {
+      max-width: 40rem;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.4;
+      color: #000000;
+      text-align: center;
+    }
+
+    #generate-btn {
+      font-family: inherit;
+      font-size: 1rem;
+      color: #000000;
+      background: #f2f2f2;
+      border: 1px solid #000000;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1.25rem;
+      cursor: pointer;
+    }
+
+    #generate-btn:hover {
+      background: #d9d9d9;
+    }
+  </style>
+</head>
+
+<body onload="card_gen()">
+
+  <div id="card-container">
+    <span id="card-sentence"></span>
+    <button id="generate-btn" onclick="card_gen()">Generate another</button>
+  </div>
+
+  <script>
+  function pickRandom(list) {
+    return list[Math.floor(Math.random() * list.length)];
+  }
+
+  function card_gen() {
+    var rand_question = pickRandom(questions);
+
+    var rand_noun1 = pickRandom(nouns);
+    var rand_noun2;
+    do { // ensures the 2 nouns are different
+      rand_noun2 = pickRandom(nouns);
+    } while (rand_noun2 === rand_noun1)
+
+    var question = rand_question
+      .replace("_", "<u>" + rand_noun1 + "</u>")
+      .replace("_", "<u>" + rand_noun2 + "</u>");
+
+    document.getElementById("card-sentence").innerHTML = question;
+  }
+
+  var questions = [
+    "What's the line from the old song about _ and _?",
+    "What's the difference between _ and _?",
+    "How do you make _ resemble _?",
+    "What do you get when you cross _ with _?",
+    "Why is _ afraid of _?",
+    "Why does _ always win a fight with _?",
+    "What happened when _ turned into _?",
+    "Why is _ envious of _?",
+    "What did _ say to _?",
+    "Why does _ hate _?",
+    "What happened when _ went on a blind date with _?",
+    "What's the last line of the book about _ and _?",
+    "What's the punchline of the old joke about _ and _?",
+    "What do _ and _ have in common?",
+    "Why does _ love _?",
+    "What happened at the wedding of _ and _?",
+    "Why does _ want to be _?",
+    "Why did _ go to heaven while _ went to hell?",
+    "Why is _ better than _?",
+    "What's the old saying about _ and _?"
+  ]
+
+  var nouns = [
+    "a traffic light",
+    "a computer geek",
+    "a lumberjack",
+    "a crab",
+    "Mars",
+    "a slug",
+    "Santa Claus",
+    "a bulldozer",
+    "a politician",
+    "an airplane",
+    "a hippy",
+    "a hippopotamus",
+    "a cloud",
+    "a ninja",
+    "a sea horse",
+    "a banana",
+    "beer",
+    "a bat",
+    "an eyeball",
+    "a werewolf",
+    "an elephant",
+    "a squid",
+    "a ballerina",
+    "a drunk",
+    "a rabbit",
+    "a pirate",
+    "a goldfish",
+    "a piranha",
+    "a waitress",
+    "a vacuum cleaner",
+    "the Sun",
+    "an alarm clock",
+    "God",
+    "a frog",
+    "a firefly",
+    "a turkey",
+    "wind",
+    "a boxer",
+    "a barber",
+    "a king",
+    "a walrus",
+    "a millionaire",
+    "a secretary",
+    "a priest",
+    "coffee",
+    "a tapeworm",
+    "the Moon",
+    "a plumber",
+    "cheese",
+    "a police officer",
+    "a telephone",
+    "fire",
+    "a pocket watch",
+    "a chameleon",
+    "an astronaut",
+    "a gargoyle",
+    "a sailboat",
+    "a gerbil",
+    "a pilot",
+    "a polar bear",
+    "a light bulb",
+    "the president",
+    "a woolly mammoth",
+    "a wolf",
+    "a supermodel",
+    "a college student",
+    "a ladybug",
+    "an alligator",
+    "an octopus",
+    "a vampire",
+    "a goose",
+    "a worm",
+    "a raccoon",
+    "road kill",
+    "a snowball",
+    "a diaper",
+    "a groom",
+    "a cactus",
+    "a cockroach",
+    "a beaver",
+    "a thief",
+    "an absent-minded professor",
+    "an accountant",
+    "a soldier",
+    "a mime",
+    "a potato",
+    "a koala bear",
+    "a duck",
+    "a giraffe",
+    "a gingerbread man",
+    "a tongue",
+    "a whale",
+    "an insurance salesman",
+    "a rock",
+    "a tax collector",
+    "a dragon",
+    "a baby",
+    "a magnet",
+    "a chicken",
+    "a catapult",
+    "a hammer",
+    "a chihuahua",
+    "a skunk",
+    "a chimpanzee",
+    "a pizza",
+    "a hawk",
+    "a UFO",
+    "a jellyfish",
+    "an arsonist",
+    "a queen",
+    "a butterfly",
+    "a pig",
+    "a bowling ball",
+    "a librarian",
+    "a doctor",
+    "a reporter",
+    "a cow",
+    "a stripper",
+    "a television",
+    "a voodoo doll",
+    "a pickup truck",
+    "a hot poker",
+    "an oyster",
+    "a dentist",
+    "a termite",
+    "a bomb",
+    "a boa constrictor",
+    "a swimmer",
+    "an electric guitar",
+    "a bride",
+    "a seal",
+    "a nose",
+    "a lobster",
+    "an angel",
+    "a witch",
+    "an eagle",
+    "a zoo keeper",
+    "a marathon runner",
+    "a construction worker",
+    "a judge",
+    "an ant",
+    "a shark",
+    "an author",
+    "a ghost",
+    "popcorn",
+    "a parrot",
+    "a pair of combat boots",
+    "a video game",
+    "Shakespeare",
+    "a bus driver",
+    "a rattlesnake",
+    "a hamburger",
+    "glue",
+    "a puppy",
+    "an aardvark",
+    "a snail",
+    "a mechanic",
+    "a jogger",
+    "a nurse",
+    "a diamond",
+    "a mosquito",
+    "a poodle",
+    "an alien",
+    "spam",
+    "a starfish",
+    "a cigar",
+    "a fox",
+    "a mouse",
+    "a taxi driver",
+    "a con artist",
+    "a rat",
+    "a jack-o-lantern",
+    "a cheetah",
+    "a porcupine",
+    "an otter",
+    "a televangelist",
+    "an actor",
+    "a rocket",
+    "an axe murderer",
+    "a disc jockey",
+    "a mountain",
+    "a gorilla",
+    "the Devil",
+    "a camel",
+    "a skyscraper",
+    "a flat tire",
+    "a mushroom",
+    "a magician",
+    "bubble gum",
+    "a football player",
+    "Einstein",
+    "a train",
+    "a rhinoceros",
+    "a fly",
+    "a postal worker",
+    "a pimple",
+    "a vulture",
+    "a deer",
+    "a knight",
+    "an ice cream man",
+    "a turtle",
+    "the Loch Ness Monster",
+    "a bumblebee",
+    "a minister",
+    "an ostrich",
+    "a cartoon character",
+    "a crocodile",
+    "a spider",
+    "an electric eel",
+    "a sports car",
+    "the neighborhood bully",
+    "a carpenter",
+    "a slot machine",
+    "a mermaid",
+    "a caterpillar",
+    "a grizzly bear",
+    "a psychiatrist",
+    "a rock star",
+    "a chemistry teacher",
+    "a cheerleader",
+    "poop",
+    "a zombie",
+    "a grave digger",
+    "a skeleton",
+    "a hunter",
+    "a kangaroo",
+    "a dinosaur",
+    "a village idiot",
+    "a moth",
+    "a brain surgeon",
+    "a camera",
+    "a telemarketer",
+    "a penguin",
+    "a tiger",
+    "a hockey player",
+    "a pigeon",
+    "a teddy bear",
+    "a lawyer",
+    "a superhero",
+    "a clown",
+    "a garbage collector",
+    "a scorpion",
+    "chocolate",
+    "a marshmallow",
+    "a pitchfork",
+    "a bus",
+    "a bartender",
+    "a maid",
+    "a used car salesman",
+    "a monkey",
+    "a butcher",
+    "a cricket",
+    "an armadillo",
+    "a flower",
+    "a baker",
+    "a tree",
+    "a refrigerator",
+    "a wimp",
+    "a kitten",
+    "a screwdriver",
+    "a sailor",
+    "an undertaker",
+    "a hyena",
+    "an owl",
+    "a squirrel",
+    "an egg",
+    "a rabbi",
+    "a dog catcher",
+    "a catfish",
+    "Dr. Seuss",
+    "a goat",
+    "a small elf",
+    "an opossum",
+    "a sheep",
+    "a gambler",
+    "the Internet",
+    "a cat",
+    "a vegetarian",
+    "a horse",
+    "a dolphin",
+    "a toad",
+    "a weatherman",
+    "a rocket scientist",
+    "a lunatic",
+    "a stunt double",
+    "a fisherman",
+    "a woodpecker",
+    "a maggot",
+    "an old man",
+    "a snowman",
+    "a teapot",
+    "a hermit",
+    "a trekkie",
+    "a zebra",
+    "a frying pan",
+    "a submarine",
+    "a mad scientist",
+    "a fairytale princess",
+    "a spy",
+    "a firefighter",
+    "a lion",
+    "butter",
+    "a beggar",
+    "an apple pie",
+    "the universe",
+    "a robot",
+    "Elvis Presley",
+    "a cook",
+    "a cowboy",
+    "a fart",
+    "a psychic",
+    "a farmer",
+    "an English teacher",
+    "the Pope",
+    "a duck-billed platypus",
+    "a computer",
+    "a radio",
+    "a pair of underpants"
+  ]
+  </script>
+</body>
+</html>
