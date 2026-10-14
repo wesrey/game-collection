@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wes' Kallax Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page: #ffffff;
+    --ink: #12131a;
+    --ink-dim: #5b5d6b;
+    --ink-faint: #9799a6;
+    --rule: #e4e4ea;
+    --rule-strong: #cfd0da;
+    --stripe: #fafafc;
+    --cobalt: #1f3fe0;
+    --solo: #7a3fd1;
+    --two: #1f3fe0;
+    --party: #c8432b;
+    --other: #3f6b5c;
+    --gap: #eceef4;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    padding: 0 0 6rem;
+  }
+
+  .g-solo { --g: var(--solo); }
+  .g-two { --g: var(--two); }
+  .g-party { --g: var(--party); }
+  .g-other { --g: var(--other); }
+
+  header.masthead {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4.5rem 1rem 1.5rem;
+    text-align: center;
+  }
+
+  .herotitle {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 4rem);
+    letter-spacing: -0.01em;
+    color: var(--cobalt);
+    margin: 0 0 0.9rem;
+    line-height: 1.05;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--cobalt);
+    margin-bottom: 1.3rem;
+  }
+
+  .lede {
+    font-size: 1rem;
+    color: var(--ink-dim);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .stat .big {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .stat .word, .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--ink-dim);
+  }
+
+  .meta { margin-top: 0.9rem; font-size: 0.68rem; color: var(--ink-faint); }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--g);
+    border: 1px solid var(--g);
+    border-radius: 3px;
+    padding: 0.2rem 0.5rem;
+  }
+
+  nav.jump {
+    max-width: 900px;
+    margin: 1.2rem auto 1rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.6rem;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+  }
+
+  nav.jump a {
+    text-decoration: none;
+    color: var(--ink-dim);
+    border: 1px solid var(--rule-strong);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    transition: all 0.15s ease;
+  }
+
+  nav.jump a:hover {
+    color: #ffffff;
+    background: var(--cobalt);
+    border-color: var(--cobalt);
+  }
+
+  nav.jump a.dashed { border-style: dashed; color: var(--ink-faint); }
+
+  main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 1rem 1rem 0;
+  }
+
+  section.group { margin-bottom: 3rem; }
+
+  .shelf-tag {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+
+  .shelf-tag .num {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: var(--g);
+  }
+
+  .shelf-tag .word {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--ink-dim);
+  }
+
+  .shelf-tag .count {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+    gap: 2rem 1.6rem;
+  }
+
+  .cubby-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.45rem;
+  }
+
+  .cubby-name {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--g);
+  }
+
+  .cubby-fill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-dim);
+  }
+
+  /* One cubby's front, to scale. Uncovered space shows as hatching. */
+  .frame {
+    position: relative;
+    aspect-ratio: 1;
+    container-type: inline-size;
+    border: 3px solid var(--ink);
+    border-radius: 2px;
+    background: repeating-linear-gradient(45deg, var(--page) 0 5px, var(--gap) 5px 10px);
+    overflow: hidden;
+  }
+
+  .box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--g) 13%, var(--page));
+    border: 1px solid var(--g);
+    color: var(--ink);
+    font-size: clamp(7px, 3.1cqw, 12px);
+    line-height: 1.1;
+  }
+
+  .box span {
+    padding: 1px 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .box.upright span { writing-mode: vertical-rl; }
+  .box b { font-family: 'JetBrains Mono', monospace; font-weight: 500; color: var(--g); }
+  .box.container { border-style: dashed; border-width: 2px; }
+
+  .box.filler {
+    background: var(--stripe);
+    border-color: var(--ink-faint);
+    color: var(--ink-dim);
+  }
+
+  .box.filler b { color: var(--ink-faint); }
+
+  .steps {
+    margin: 0.7rem 0 0;
+    padding-left: 1.6rem;
+    font-size: 0.8rem;
+    color: var(--ink-dim);
+    line-height: 1.35;
+  }
+
+  .steps li { margin-bottom: 0.3rem; }
+  .steps li::marker { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--ink-faint); }
+
+  .iname {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--ink);
+  }
+
+  .where { display: block; }
+  .holds { font-size: 0.74rem; color: var(--ink-faint); font-style: italic; }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    padding: 0.05rem 0.3rem;
+    vertical-align: middle;
+  }
+
+  .empty {
+    text-align: center;
+    color: var(--ink-dim);
+    padding: 2rem 0;
+  }
+
+  .footer {
+    max-width: 760px;
+    margin: 1rem auto 0;
+    padding: 2rem 1rem 0;
+    border-top: 1px dashed var(--rule-strong);
+  }
+
+  details.extra { margin-bottom: 1.4rem; }
+
+  details.extra summary {
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-dim);
+  }
+
+  details.extra .count { color: var(--ink-faint); margin-left: 0.3rem; }
+
+  details.extra ul {
+    columns: 2 220px;
+    column-gap: 1.6rem;
+    padding-left: 1.2rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  details.extra li { break-inside: avoid; }
+  .dim { color: var(--ink-faint); font-size: 0.78rem; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1 class="herotitle">The Kallax</h1>
+  <div class="eyebrow">How the Collection Fits on the Shelves</div>
+  <p class="lede">Every cubby drawn to scale from the front. Load each one in the numbered order: bottom up, left to right. Hatching is empty space; grey boxes are fillers from outside the cubby's group.</p>
+  <div class="stat"><span class="big">0</span><span class="word">cubbies needed</span></div>
+  <div class="chips"></div>
+  <div class="meta">Average fill 0% · 0 of 360 boxes measured</div>
+</header>
+
+<nav class="jump">
+<a href="#to-measure" class="dashed">To measure</a>
+</nav>
+
+<main>
+
+<p class="empty">Nothing measured yet. Fill in tall, wide and deep in data/storage.csv and re-run kallax.py.</p>
+
+</main>
+
+<div class="footer">
+<details class="extra" id="to-measure">
+  <summary>Still to measure <span class="count">360</span></summary>
+  <ul><li>12 Days</li><li>7 Wonders</li><li>A Fake Artist Goes to New York</li><li>A Game of Thrones: The Board Game (Second Edition)</li><li>Acquire</li><li>Adventure Games: Monochrome Inc.</li><li>Aerion</li><li>Age of Empires III: The Age of Discovery</li><li>Agricola: All Creatures Big and Small</li><li>Air, Land, &amp; Sea</li><li>Alhambra</li><li>Alhambra: Big Box</li><li>Android: Netrunner</li><li>Android: Netrunner – A Study in Static</li><li>Android: Netrunner – Terminal Directive</li><li>Animal Upon Animal</li><li>Anomia</li><li>Apples to Apples</li><li>Arboretum</li><li>Arkham Horror: The Card Game</li><li>Ascension: Deckbuilding Game</li><li>Ashes Reborn: Rise of the Phoenixborn</li><li>Ashes Reborn: The Children of Blackcloud</li><li>Ashes Reborn: The Duchess of Deception</li><li>Ashes Reborn: The Frostdale Giants</li><li>Ashes Reborn: The Roaring Rose</li><li>Ashes: Dimona Odinstar Promo Cards</li><li>Ashes: Lulu Firststone Promo Card</li><li>Azul</li><li>Azul: Master Chocolatier</li><li>Azul: Summer Pavilion</li><li>BANG!</li><li>BANG! Dodge City</li><li>BANG! The Dice Game</li><li>BUS</li><li>Balloon Cup</li><li>Bananagrams</li><li>Bananagrams Party</li><li>Bargain Quest</li><li>Battle Line</li><li>Battleship</li><li>Battlestar Galactica: The Board Game</li><li>Block Party</li><li>Blokus</li><li>Blue Moon City</li><li>Bohnanza</li><li>Brass: Birmingham</li><li>Burgle Bros.</li><li>Burgle Bros. 3: Future Flip</li><li>CV</li><li>Camel Up</li><li>Can&#x27;t Stop</li><li>Candy Land</li><li>Carcassonne</li><li>Carcassonne: Dragon &amp; Fairy</li><li>Carcassonne: Inns &amp; Cathedrals</li><li>Carcassonne: The River</li><li>Carcassonne: Towers &amp; Thieves</li><li>Carcassonne: Traders &amp; Builders</li><li>Cards Against Humanity</li><li>Careers</li><li>Cascadia</li><li>Castle Panic</li><li>Castle Panic: The Wizard&#x27;s Tower</li><li>Cat in the Box: Deluxe Edition</li><li>Catan</li><li>Catan: Seafarers</li><li>Catchphrase</li><li>Caylus Magna Carta</li><li>Chicken Cha Cha Cha</li><li>Chinatown</li><li>Chutes and Ladders</li><li>Citadels</li><li>Clue</li><li>Clue: Card Game</li><li>Clue: The Great Museum Caper</li><li>Cockroach Poker</li><li>Codenames</li><li>Codenames: Duet</li><li>Codenames: Pictures</li><li>Coffee Roaster</li><li>Coloretto</li><li>Colt Express</li><li>Compile: Main 1</li><li>Concordia</li><li>Connect Four</li><li>Cosmic Encounter</li><li>Count Your Chickens!</li><li>Coup</li><li>Cranium</li><li>Cranium Zigity</li><li>Cranium: Hoopla</li><li>DVONN</li><li>Dead Last</li><li>Dead of Winter: A Crossroads Game</li><li>Deception: Murder in Hong Kong</li><li>Decrypto</li><li>Deep Sea Adventure</li><li>Diamant</li><li>Dice Forge</li><li>Dice Hospital</li><li>Dice Throne: Season Two – Gunslinger v. Samurai</li><li>Dixit</li><li>Dog Park</li><li>Dominion</li><li>Dominion: Adventures</li><li>Dominion: Intrigue</li><li>Dominion: Prosperity</li><li>Dominion: Seaside</li><li>Downforce</li><li>Downforce: Danger Circuit</li><li>Dungeon Twister</li><li>Duplik</li><li>Earthborne Rangers</li><li>El Grande</li><li>Escape: The Curse of the Temple</li><li>Exploding Kittens</li><li>Exploding Kittens: NSFW Edition</li><li>Fall of Rome</li><li>Final Girl</li><li>Final Girl: Frightmare on Maple Lane</li><li>Final Girl: The Happy Trails Horror</li><li>Fireball Island: The Curse of Vul-Kar</li><li>Five Tribes: The Djinns of Naqala</li><li>Flamme Rouge</li><li>Flashlights &amp; Fireflies</li><li>For Sale</li><li>Forbidden Desert</li><li>Forbidden Island</li><li>Fort</li><li>Friday</li><li>Fugitive</li><li>Get Bit!</li><li>Get Lucky</li><li>Ghost Stories</li><li>Go</li><li>Good Face Bad Face</li><li>Gravwell: Escape from the 9th Dimension</li><li>Guillotine</li><li>Hanabi</li><li>Heat: Pedal to the Metal</li><li>Herd Mentality</li><li>Hey, That&#x27;s My Fish!</li><li>High Society</li><li>Hive</li><li>Hive: The Ladybug</li><li>Hive: The Mosquito</li><li>Hive: The Pillbug</li><li>Hocus</li><li>Hoity Toity</li><li>Holding On: The Troubled Life of Billy Kerr</li><li>Hotel</li><li>ICECOOL</li><li>Iberia</li><li>Ingenious</li><li>Jaipur</li><li>Jukem Football</li><li>Just One</li><li>KLASK</li><li>KeyForge: Call of the Archons</li><li>KeyForge: Call of the Archons – Archon Deck</li><li>Kill Doctor Lucky</li><li>King of Tokyo</li><li>Kingsburg</li><li>L.L.A.M.A.</li><li>Lanterns: The Harvest Festival</li><li>Last Will</li><li>Letter Jam</li><li>Libertalia: Winds of Galecrest</li><li>Loony Quest</li><li>Lords of Vegas</li><li>Lords of Vegas: UP!</li><li>Lost Cities</li><li>Love Letter</li><li>Mage Knight Board Game</li><li>Magic Maze</li><li>Marvel Champions: The Card Game</li><li>Marvel Champions: The Card Game – Ant-Man Hero Pack</li><li>Marvel Champions: The Card Game – Black Widow Hero Pack</li><li>Marvel Champions: The Card Game – Captain America Hero Pack</li><li>Marvel Champions: The Card Game – Doctor Strange Hero Pack</li><li>Marvel Champions: The Card Game – The Green Goblin Scenario Pack</li><li>Marvel Champions: The Card Game – The Rise of Red Skull</li><li>Marvel Champions: The Card Game – The Wrecking Crew Scenario Pack</li><li>Medici</li><li>Medium</li><li>Megastar</li><li>Memoir &#x27;44</li><li>MicroMacro: Crime City</li><li>MicroMacro: Crime City – Full House</li><li>Mille Bornes</li><li>Modern Art</li><li>Monikers</li><li>Monkey Palace</li><li>Monolith Arena</li><li>Monopoly Deal Card Game</li><li>Moonrakers</li><li>Munchkin</li><li>Munchkin Collectible Card Game</li><li>My City</li><li>My First UNO</li><li>Mystery of the Abbey</li><li>NMBR 9</li><li>Netrunner</li><li>No Thanks!</li><li>Notre Dame</li><li>One Night Ultimate Werewolf</li><li>One Night Ultimate Werewolf: Daybreak</li><li>Onirim (Second Edition)</li><li>Onitama</li><li>PUSH</li><li>Pairs</li><li>Palm Island</li><li>Pandemic</li><li>Pandemic Legacy: Season 0</li><li>Pandemic Legacy: Season 1</li><li>Pandemic Legacy: Season 2</li><li>Pandemic: On the Brink</li><li>Pandemic: Rising Tide</li><li>Pandemic: The Cure</li><li>Pandemic: The Cure – Experimental Meds</li><li>Paperback Adventures</li><li>Paperback Adventures: Damsel</li><li>Paperback Adventures: Ex Machina</li><li>Paperback Adventures: Plothook</li><li>Patchwork</li><li>Pearladöra</li><li>Phantom Ink</li><li>Pick-a-Dog</li><li>Pirate&#x27;s Cove</li><li>Pit</li><li>Point Salad</li><li>Power Grid</li><li>Power Grid: Benelux/Central Europe</li><li>Power Grid: France/Italy</li><li>Puerto Rico</li><li>Quacks</li><li>Quadropolis</li><li>Quarriors!</li><li>Quarto</li><li>Quirky Circuits</li><li>Qwinto</li><li>Qwirkle</li><li>Ra</li><li>Race for the Galaxy</li><li>Race for the Galaxy: New Worlds Promo Cards</li><li>Race for the Galaxy: The Gathering Storm</li><li>Rhino Hero</li><li>Risk</li><li>Rolling America</li><li>Rory&#x27;s Story Cubes</li><li>SCOUT</li><li>Saboteur</li><li>Sagrada</li><li>San Juan</li><li>Santorini</li><li>Save Doctor Lucky</li><li>Say Anything</li><li>Shadows over Camelot</li><li>Shadows over Camelot: Merlin&#x27;s Company</li><li>Sheriff of Nottingham</li><li>Sherlock Holmes Consulting Detective: The Thames Murders &amp; Other Cases</li><li>Skip-Bo</li><li>Skull</li><li>Small World</li><li>Small World: Be Not Afraid...</li><li>Small World: Grand Dames of Small World</li><li>Smash Up</li><li>Snow Tails</li><li>Sorry! Sliders</li><li>Space Alert</li><li>Specter Ops</li><li>Spirit Island</li><li>Splendor</li><li>Splendor: Cities of Splendor</li><li>Spot it!</li><li>Sprawlopolis</li><li>Sprawlopolis: Beaches</li><li>Sprawlopolis: Construction Zones</li><li>Sprawlopolis: Points of Interest</li><li>Sprawlopolis: Wrecktar</li><li>Spring Meadow</li><li>Star Realms</li><li>Star Realms: Frontiers</li><li>Star Wars: Destiny</li><li>Star Wars: Rebellion</li><li>Star Wars: The Deckbuilding Game</li><li>Steam Torpedo: First Contact</li><li>Stella: Dixit Universe</li><li>Stockpile</li><li>Strike</li><li>Suburbia</li><li>Suburbia Inc</li><li>Super-Skill Pinball: 4-Cade</li><li>Sushi Go Party!</li><li>Sushi Go!</li><li>Sushi Roll</li><li>T.I.M.E Stories: The Marcy Case</li><li>Tak</li><li>Take 5 &amp; Take A Number</li><li>Targi</li><li>Tash-Kalar: Arena of Legends</li><li>That&#x27;s Not Lemonade</li><li>That&#x27;s Not a Hat</li><li>The Crew: The Quest for Planet Nine</li><li>The Duke</li><li>The Fox in the Forest</li><li>The Lord of the Rings</li><li>The Mind</li><li>The Pillars of the Earth</li><li>The Princes of Florence</li><li>The Quest for El Dorado</li><li>The Resistance</li><li>The Resistance: Avalon</li><li>Things in Rings</li><li>Through the Ages: A Story of Civilization</li><li>Through the Desert</li><li>Thunderstone</li><li>Ticket to Ride</li><li>Ticket to Ride: Europe</li><li>Ticket to Ride: First Journey (U.S.)</li><li>Ticket to Ride: Märklin</li><li>Ticket to Ride: USA 1910</li><li>Tigris &amp; Euphrates</li><li>Time&#x27;s Up!</li><li>Time&#x27;s Up! Title Recall!</li><li>Timeline: Inventions</li><li>Tokaido</li><li>Toy Battle</li><li>TransAmerica</li><li>Tsuro</li><li>Twilight Struggle</li><li>Two Rooms and a Boom</li><li>Two Rooms and a Boom: Necroboomicon Expansion Pack</li><li>UNO</li><li>Under Falling Skies</li><li>Unlock! Kids: Detective Stories</li><li>Unlock!: Escape Adventures – The Formula</li><li>Unlock!: Heroic Adventures</li><li>Unlock!: Mystery Adventures – The Nautilus&#x27; Traps</li><li>Unlock!: Timeless Adventures</li><li>Unmatched: Jurassic Park – Dr. Sattler vs. T. Rex</li><li>Unmatched: Jurassic Park – InGen vs Raptors</li><li>Unmatched: Robin Hood vs. Bigfoot</li><li>Vast: The Crystal Caverns</li><li>Vegas Showdown</li><li>WINK</li><li>Warhammer Age of Sigmar: Champions Trading Card Game</li><li>Wavelength</li><li>Wavelength</li><li>Welcome To...</li><li>Werewords Deluxe Edition</li><li>Whitehall Mystery</li><li>Why Did the Chicken...?</li><li>Wings of War: Famous Aces</li><li>Witness</li><li>Word on the Street</li><li>World Championship Russian Roulette</li><li>Zombie Burrito</li><li>Zombie Dice</li></ul>
+</details>
+</div>
+
+</body>
+</html>

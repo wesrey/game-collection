@@ -33,6 +33,32 @@ they're hand-maintained by BGG objectid in `scripts/generate.py`
 Changing only `scripts/generate.py` or `scripts/template.html` (without a
 new CSV export)? Run `python3 scripts/generate.py` directly instead.
 
+## Kallax packing plan
+
+`public/kallax.html` shows how many IKEA Kallax cubbies the collection needs
+and draws each cubby's front to scale, with a numbered loading order. Every
+cubby is labeled Solo, 2-Player, Party or Other; Other games may fill gaps
+left in the other groups' cubbies (drawn grey, tagged "filler").
+
+It's built from `data/storage.csv`, a spreadsheet you edit by hand. Running
+`extract_data.py` (or `python3 scripts/kallax.py` on its own) adds a row for
+each newly owned game or expansion and never changes values you've entered.
+
+| Column | What to put there |
+|---|---|
+| `tall`, `wide`, `deep` | Box size in inches with the box flat on a table, lid up: `11.75` or `11 3/4`. Only needed if `stored_in` is blank. |
+| `stored_in` | Blank if the box needs its own spot. Another row's `id` if it lives inside that box or container (e.g. an expansion that fits in its base game). `off-shelf` if it isn't kept in the Kallax. |
+| `group` | Blank to work it out from player counts (`classify()` in `scripts/kallax.py`). `solo`, `two`, `party` or `other` to override — this is how party games are marked. |
+
+Containers (bins, tins, a travel bag) aren't in BGG, so add a row for each
+yourself: any `id` you like (e.g. `dice-bin`), `kind` set to `container`, and
+its size. Games can then use that id in `stored_in`. A container can be
+`off-shelf` too, and anything inside it is then off-shelf as well.
+
+Measure one real cubby and adjust `CUBBY_WIDTH`, `CUBBY_HEIGHT` and
+`CUBBY_DEPTH` at the top of `scripts/kallax.py` if yours differ. Tests:
+`python3 -m unittest discover -s scripts -p 'test_*.py'`.
+
 ## Automatic S3 Deployment
 
 The `main` branch deploys the contents of `public/` to the `games/` prefix
