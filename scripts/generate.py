@@ -12,7 +12,8 @@ Grouping and math were reverse-engineered from the original hand-built page:
     (baverage) within that specific shelf's group of games, rescaled to a
     5%-100% range (5% = worst rated game at that count, 100% = best rated
     game at that count). The 5% floor is cosmetic, so the worst-rated game
-    on a shelf doesn't render as a stark 0%.
+    on a shelf doesn't render as a stark 0%. A shelf with no rating spread
+    (e.g. a single game) shows 100%, since every game on it is the best.
 """
 import colorsys
 import html
@@ -45,7 +46,8 @@ TWO_TEAM_GAME_OBJECTIDS = {
     198773, # Codenames Pictures
     225694, # Decrypto
     40990, # Word on the Street
-    262543 # Wavelength
+    262543, # Wavelength
+    134352 # Two Rooms and a Boom
 }
 
 SHELVES = [
@@ -116,7 +118,7 @@ def build_shelf(games, count):
         weight_pct = round(g["avgweight"] / COMPLEXITY_DIVISOR * 100)
         rating_pct = (
             round(RATING_FLOOR + (g["baverage"] - lo) / spread * (100 - RATING_FLOOR))
-            if spread else RATING_FLOOR
+            if spread else 100
         )
         rows.append({
             "name": g["name"],
